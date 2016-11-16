@@ -2,7 +2,7 @@ var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
 
-var NativeLangUserSchema = new Schema({
+var NativeLanUserSchema = new Schema({
   name: String,
   nativeLang: String,
   learnLang: String,
@@ -10,5 +10,5 @@ var NativeLangUserSchema = new Schema({
   favoriteAnimal: String
 });
 
-var NativeLangUser = mongoose.model('NativeLangUser', NativeLangUserSchema);
-module.exports = NativeLangUser;
+var NativeLanUser = mongoose.model('NativeLangUser', NativeLanUserSchema);
+module.exports = NativeLanUser;
