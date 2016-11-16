@@ -6,7 +6,8 @@ var NativeLangUserSchema = new Schema({
   name: String,
   nativeLang: String,
   learnLang: String,
-  curentCity: String
+  curentCity: String,
+  favoriteAnimal: String
 });
 
 var NativeLangUser = mongoose.model('NativeLangUser', NativeLangUserSchema);

@@ -6,7 +6,8 @@ var LearnUserSchema = new Schema({
   name: String,
   nativeLang: String,
   learnLang: String,
-  curentCity: String
+  curentCity: String,
+  favoriteAnimal: String
 });
 
 var LearnUser = mongoose.model('LearnUser', LearnUserSchema);
