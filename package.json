@@ -1,0 +1,20 @@
+{
+  "name": "project1",
+  "version": "1.0.0",
+  "description": "Single Page Web App",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yasuper8/Project1.git"
+  },
+  "author": "Sophie Luo & Yasuyoshi Sakamoto",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yasuper8/Project1/issues"
+  },
+  "homepage": "https://github.com/yasuper8/Project1#readme"
+}
