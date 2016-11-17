@@ -36,15 +36,15 @@
   <div class="container w-xxl w-auto-xs" ng-controller="SigninFormController" ng-init="app.settings.container = false;">
     <a href class="navbar-brand block m-t">Tell us about yourself!</a>
     <div class="m-b-lg" id="languages">
-      <form name="form" class="form-validation">
+      <form name="form" class="form-validation" id="userSignUpLang">
         <div class="text-danger wrapper text-center" ng-show="authError">
         </div>
         <div class="list-group list-group-sm">
           <div class="list-group-item">
-            <input type="nativeLang" placeholder="Choose your native language" class="form-control no-border" ng-model="user.email" required>
+            <input type="nativeLang" name="nativeLang" placeholder="Choose your native language" class="form-control no-border" ng-model="user.email" required>
           </div>
           <div class="list-group-item">
-             <input type="learningLang" placeholder="What languages you want to learn?" class="form-control no-border" ng-model="user.password" required>
+             <input type="learningLang" name="learnLang" placeholder="What languages you want to learn?" class="form-control no-border" ng-model="user.password" required>
           </div>
         </div>
         <a href ="#moreInfo" type="submit" class="btn btn-lg btn-info btn-block">Next</a>
@@ -72,15 +72,15 @@
     <br>
     <div class="m-b-lg" id="moreInfo">
           <a href class="navbar-brand block m-t">Make it more fun!</a>
-      <form name="form" class="form-validation">
+      <form name="form" class="form-validation" id="userSignUpCityAnimal">
         <div class="text-danger wrapper text-center" ng-show="authError">
         </div>
         <div class="list-group list-group-sm">
           <div class="list-group-item">
-            <input type="currentCity" placeholder="Choose your current city" class="form-control no-border" ng-model="user.email" required>
+            <input type="currentCity" name="currentCity" placeholder="Choose your current city" class="form-control no-border" ng-model="user.email" required>
           </div>
           <div class="list-group-item">
-             <input type="favAnimal" placeholder="What's your favorite animal?" class="form-control no-border" ng-model="user.password" required>
+             <input type="favAnimal" name="favoriteAnimal" placeholder="What's your favorite animal?" class="form-control no-border" ng-model="user.password" required>
           </div>
         </div>
         <a href ="index.html" type="submit" class="btn btn-lg btn-info btn-block">Next</a>

@@ -10,7 +10,7 @@ var user_lists = [
     currnetCity: "San Francisco",
     favoriteAnimal: "wolf",
     profileUrl: ""
-    // friends: {type: User.Types.ObjectId, ref: "User"}
+  
   },
   {
     name: "Daniel Kingdon",
@@ -21,7 +21,7 @@ var user_lists = [
     currnetCity: "San Francisco",
     favoriteAnimal: "elephant",
     profileUrl: ""
-    // friends: {type: User.Types.ObjectId, ref: "User"}
+  
   },
   {
     name: "Daniel Finelli",
@@ -32,7 +32,7 @@ var user_lists = [
     currnetCity: "San Francisco",
     favoriteAnimal: "giraffe",
     profileUrl: ""
-    // friends: {type: User.Types.ObjectId, ref: "User"}
+  
   },
   {
     name: "Sophie Luo",
@@ -43,7 +43,7 @@ var user_lists = [
     currnetCity: "San Francisco",
     favoriteAnimal: "panda",
     profileUrl: ""
-    // friends: {type: User.Types.ObjectId, ref: "User"}
+  
   },
   {
     name: "Derry Nixon",
@@ -54,7 +54,7 @@ var user_lists = [
     currnetCity: "San Francisco",
     favoriteAnimal: "whale",
     profileUrl: ""
-    // friends: {type: User.Types.ObjectId, ref: "User"}
+  
   },
   {
     name: "Emily Johnson",
@@ -65,7 +65,7 @@ var user_lists = [
     currnetCity: "San Francisco",
     favoriteAnimal: "penguin",
     profileUrl: ""
-    // friends: {type: User.Types.ObjectId, ref: "User"}
+  
   },
   {
     name: "Diane Liu",
@@ -76,7 +76,7 @@ var user_lists = [
     currnetCity: "San Francisco",
     favoriteAnimal: "turtle",
     profileUrl: ""
-    // friends: {type: User.Types.ObjectId, ref: "User"}
+  
   },
   {
     name: "Jonathan Hall",
@@ -87,7 +87,7 @@ var user_lists = [
     currnetCity: "San Francisco",
     favoriteAnimal: "duck",
     profileUrl: ""
-    // friends: {type: User.Types.ObjectId, ref: "User"}
+  
   },
   {
     name: "Katie Dodd",
@@ -98,7 +98,7 @@ var user_lists = [
     currnetCity: "San Francisco",
     favoriteAnimal: "Koala",
     profileUrl: ""
-    // friends: {type: User.Types.ObjectId, ref: "User"}
+  
   },
   {
     name: "Kevin Tran",
@@ -109,7 +109,7 @@ var user_lists = [
     currnetCity: "San Francisco",
     favoriteAnimal: "lion",
     profileUrl: ""
-    // friends: {type: User.Types.ObjectId, ref: "User"}
+  
   },
   {
     name: "Margaret Ha",
@@ -120,7 +120,7 @@ var user_lists = [
     currnetCity: "San Francisco",
     favoriteAnimal: "rabbit",
     profileUrl: ""
-    // friends: {type: User.Types.ObjectId, ref: "User"}
+  
   },
   {
     name: "Kyle Russell",
@@ -131,7 +131,7 @@ var user_lists = [
     currnetCity: "San Francisco",
     favoriteAnimal: "leopard",
     profileUrl: ""
-    // friends: {type: User.Types.ObjectId, ref: "User"}
+  
   },
   {
     name: "Martin Uriarte",
@@ -142,7 +142,7 @@ var user_lists = [
     currnetCity: "San Francisco",
     favoriteAnimal: "lion",
     profileUrl: ""
-    // friends: {type: User.Types.ObjectId, ref: "User"}
+  
   },
   {
     name: "Solimar Beniquez",
@@ -153,7 +153,7 @@ var user_lists = [
     currnetCity: "San Francisco",
     favoriteAnimal: "giraffe",
     profileUrl: ""
-    // friends: {type: User.Types.ObjectId, ref: "User"}
+  
   },
   {
     name: "Star Kim",
@@ -164,7 +164,7 @@ var user_lists = [
     currnetCity: "San Francisco",
     favoriteAnimal: "eagle",
     profileUrl: ""
-    // friends: {type: User.Types.ObjectId, ref: "User"}
+  
   },
   {
     name: "Stephen Dangerfield",
@@ -175,7 +175,7 @@ var user_lists = [
     currnetCity: "San Francisco",
     favoriteAnimal: "elephant",
     profileUrl: ""
-    // friends: {type: User.Types.ObjectId, ref: "User"}
+  
   },
   {
     name: "Virginia Chae",
@@ -186,7 +186,7 @@ var user_lists = [
     currnetCity: "San Francisco",
     favoriteAnimal: "dolphin",
     profileUrl: ""
-    // friends: {type: User.Types.ObjectId, ref: "User"}
+  
   },
   {
     name: "Vladyslav Kuliani",
@@ -197,7 +197,7 @@ var user_lists = [
     currnetCity: "San Francisco",
     favoriteAnimal: "horse",
     profileUrl: ""
-    // friends: {type: User.Types.ObjectId, ref: "User"}
+  
   },
   {
     name: "Yasuyoshi Sakamoto",
@@ -208,7 +208,7 @@ var user_lists = [
     currnetCity: "San Francisco",
     favoriteAnimal: "eagle",
     profileUrl: ""
-    // friends: {type: User.Types.ObjectId, ref: "User"}
+  
   },
   {
     name: "Justin Castilla",
@@ -219,7 +219,7 @@ var user_lists = [
     currnetCity: "San Francisco",
     favoriteAnimal: "puppy",
     profileUrl: ""
-    // friends: {type: User.Types.ObjectId, ref: "User"}
+  
   },
   {
     name: "Jean W",
@@ -230,7 +230,7 @@ var user_lists = [
     currnetCity: "San Francisco",
     favoriteAnimal: "dolphin",
     profileUrl: ""
-    // friends: {type: User.Types.ObjectId, ref: "User"}
+  
   }
 ];
 
