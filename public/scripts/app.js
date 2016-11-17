@@ -19,29 +19,29 @@ $(document).ready(function(){
       });
     });
 
-    $('#userSignUpLang').on('submit', function(e) {
-      e.preventDefault();
-      console.log('new user languages, passwords serialized', $(this).serialize());
-      $.ajax({
-        method: 'POST',
-        url: '/api/users',
-        data: $(this).serialize(),
-        success: newUserSuccess,
-        error: newUserError
-      });
-    });
-
-    $('#userSignUpCityAnimal').on('submit', function(e) {
-      e.preventDefault();
-      console.log('new user current city, passwords serialized', $(this).serialize());
-      $.ajax({
-        method: 'POST',
-        url: '/api/users',
-        data: $(this).serialize(),
-        success: newUserSuccess,
-        error: newUserError
-      });
-    });
+    // $('#userSignUpLang').on('submit', function(e) {
+    //   e.preventDefault();
+    //   console.log('new user languages, passwords serialized', $(this).serialize());
+    //   $.ajax({
+    //     method: 'POST',
+    //     url: '/api/users',
+    //     data: $(this).serialize(),
+    //     success: newUserSuccess,
+    //     error: newUserError
+    //   });
+    // });
+    //
+    // $('#userSignUpCityAnimal').on('submit', function(e) {
+    //   e.preventDefault();
+    //   console.log('new user current city, passwords serialized', $(this).serialize());
+    //   $.ajax({
+    //     method: 'POST',
+    //     url: '/api/users',
+    //     data: $(this).serialize(),
+    //     success: newUserSuccess,
+    //     error: newUserError
+    //   });
+    // });
 
     function newUserSuccess() {
 
