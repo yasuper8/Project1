@@ -43,41 +43,11 @@ app.get('/', function homepage(req, res) {
 
 app.get('/api', controllers.api.index);
 
+app.get('/api/users', controllers.users.index);
 
-// Display all users
-app.get('/api/users', function(req, res) {
-  db.User.find(function(err, users) {
-    if (err) {
-      return console.log('Get all users error: ' + err);
-    }
-    res.json(users);
-  });
-});
+app.get('/api/users/:id', controllers.users.displayUser);
 
-// Display a single user
-app.get('/api/users/:id', function displayUser(req, res) {
-  db.User.findOne({_id: req.params.id}, function(err, user) {
-    res.json(user);
-  });
-});
-
-
-// Create a new user
-app.post('/api/users', function create(req, res) {
-  console.log('body', req.body);
-  db.User.create(req.body, function(err, newUser) {
-    if (err) { console.log('error', err); }
-    console.log(newUser);
-    res.json(newUser);
-  });
-});
-
-
-// app.get('/api/users', controllers.users.index);
-
-// app.get('/api/users/:id', controllers.users.displayUser);
-
-// app.post('/api/users', controllers.users.create);
+app.post('/api/users', controllers.users.create);
 
 /**********
  * SERVER *
