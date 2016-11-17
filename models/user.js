@@ -6,11 +6,11 @@ var UserSchema = new Schema({
   email: String,
   password: String,
   nativeLang: [String],
-  learningLang : [String],
+  learnLang : [String],
+  currentCity: String,
   favoriteAnimal: String,
   profileUrl: String,
-  currentCity: String,
-  friends: {type: Schema.Types.ObjectId, ref: 'User'}
+  friends: [{type: Object.Types.ObjectId, ref: 'User'}]
 });
 
 var User = mongoose.model('User', UserSchema);
