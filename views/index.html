@@ -1,77 +1,118 @@
 <!DOCTYPE html>
 <html lang="en" class="">
+
 <head>
-  <meta charset="utf-8" />
-  <title>ga project 1</title>
-  <meta name="description" content="project 1 - language exchange app for GA WDI. Authors: Yasu and Sophie" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta charset="utf-8" />
+    <title>ga project 1</title>
+    <meta name="description" content="project 1 - language exchange app for GA WDI. Authors: Yasu and Sophie" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-  <!-- STYLESHEETS -->
-  <!-- TODO: can we get rid of some of these? -->
-  <link rel="stylesheet" href="../public/styles/animate.css" type="text/css" />
-  <link rel="stylesheet" href="../public/styles/font-awesome.min.css" type="text/css" />
-  <link rel="stylesheet" href="../public/styles/simple-line-icons.css" type="text/css" />
-  <link rel="stylesheet" href="../public/styles/bootstrap.css" type="text/css" />
+    <!-- STYLESHEETS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="../public/styles/styles.css">
 
-  <link rel="stylesheet" href="../public/styles/font.css" type="text/css" />
-  <link rel="stylesheet" href="../public/styles/main.css" type="text/css" />
-  <link rel="stylesheet" href="../public/styles/app.css" type="text/css" />
+    <!-- VENDOR SCRIPTS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
 
-  <!-- VENDOR SCRIPTS -->
-  <!-- TODO: add more vendor scripts if needed -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
-
-  <!-- APPLICATION SCRIPTS -->
-  <!-- TODO: need to change the route when file structure is finalized -->
-  <script src="../public/scripts/app.js"></script>
+    <!-- APPLICATION SCRIPTS -->
+    <script src="../public/scripts/app.js"></script>
 
 </head>
+
 <body>
 
-<div class="wrapper-md">
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      Potential Language Exchange Partners Found
-    </div>
-    <div class="table-responsive">
-      <table class="table table-striped b-t b-b">
-          <div id='foundUsers'>
 
-          <!-- one album -->
-              <div class="row user">
-                  <div class="col-md-10 col-md-offset-1">
-                      <div class="panel panel-default">
-                          <div class="panel-body">
-                              <!-- begin album internal row -->
-                                  <div class="col-md-3 col-xs-12 thumbnail album-art">
-                                      <img src="./public/images/Yasu_Photography03" alt="profile image">
-                                  </div>
-                                  <div class="col-md-9 col-xs-12">
-                                      <div class="list-group">
-                                          <p>
-                                            <!-- //handlebars -->
-                                          </p>
-                                      </div>
-                                  </div>
-                              <!-- end of album internal row -->
+    <div id="signupForm" class="app app-header-fixed ">
 
-                        </div>
-                      </div>
-                  </div>
-              </div>
+        <div id="signup" class="signup">
+            <a href class="navbar-brand block m-t">AppName</a>
+            <div class="m-b-lg">
 
-          <!-- end one album -->
+                <div class="wrapper text-center">
+                    <strong>Sign in to start learning a new language!</strong>
+                </div>
 
-      </div>
-        </tbody>
-      </table>
+                <div class="container">
+                    <form name="form" class="form-validation" id="userSignUpForm">
+                        <!-- put hidden fields in here where you store your data -->
+                        <div class="list-group list-group-sm">
+                            <div class="list-group-item">
+                                <input type="username" name="userName" placeholder="Username" class="form-control no-border" required>
+                            </div>
+                            <div class="list-group-item">
+                                <input type="password" name="password" placeholder="Password" class="form-control no-border" required>
+                            </div>
+                            <div class="list-group list-group-sm">
+                                <div class="list-group-item">
+                                    <input type="text" name="nativeLang" placeholder="Choose your native language" class="form-control no-border" required>
+                                </div>
+                                <div class="list-group-item">
+                                    <input type="text" name="learningLang" placeholder="What languages you want to learn?" class="form-control no-border" equired>
+                                </div>
+                                <div class="list-group-item">
+                                    <input type="text" name="city" placeholder="Choose your current city" class="form-control no-border" required>
+                                </div>
+                                <div class="list-group-item">
+                                    <input type="text" name="favAnimal" placeholder="What's your favorite animal?" class="form-control no-border" required>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-lg btn-info btn-block">Sign Up</a>
+      </form>
     </div>
   </div>
 </div>
-</body>
+
+  <!-- <div id="languages" class="languages">
+    <a href class="navbar-brand block m-t">Tell us about yourself!</a>
+    <div class="m-b-lg" id="languages">
+      <form name="form" class="form-validation">
+        <div class="text-danger wrapper text-center">
+        </div>
+        <div class="list-group list-group-sm">
+          <div class="list-group-item">
+            <input type="nativeLang" placeholder="Choose your native language" class="form-control no-border" required>
+          </div>
+          <div class="list-group-item">
+             <input type="learningLang" placeholder="What languages you want to learn?" class="form-control no-border" equired>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-lg btn-info btn-block">Next</a>
+      </form>
+    </div>
+  </div>
+
+    <div id="moreInfo" class="moreInfo">
+      <a href class="navbar-brand block m-t">Make it more fun!</a>
+      <form name="form" class="form-validation">
+        <div class="list-group list-group-sm">
+          <div class="list-group-item">
+            <input type="currentCity" placeholder="Choose your current city" class="form-control no-border" required>
+          </div>
+          <div class="list-group-item">
+             <input type="favAnimal" placeholder="What's your favorite animal?" class="form-control no-border" required>
+          </div>
+        </div>
+        <a href ="index.html" type="submit" class="btn btn-lg btn-info btn-block">Next</a>
+      </form>
+    </div> -->
+
+    <!-- <script>
+    $( "button" ).click(function() {
+    $(".signup, .languages .moreInfo").toggle()
+  });
+    </script> -->
+
+    <div class="text-center">
+      <p>
+        <small class="text-muted">project 1 - language exchange app for GA WDI.<br> Authors: Yasu and Sophie</small>
+      </p>
+    </div>
+
+  </div>
 
 
+  </body>
 
 
 </html>
