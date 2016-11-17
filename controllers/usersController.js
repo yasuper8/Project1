@@ -25,10 +25,10 @@ function displayUser(req, res) {
 
 
 //Redirct partical info from first sign up form
-function signup(req, res) {
-  // receive first page's data
-  res.redirect('signup2.html', json: {"usename": req.body.username, "any info": });
-}
+// function signup(req, res) {
+//   // receive first page's data
+//   res.redirect('signup2.html', json: {"usename": req.body.username, "any info": });
+// }
 
 // Create a new user
 function create(req, res) {
