@@ -33,12 +33,13 @@ function create(req, res) {
 }
 
 
+// destroy: destroy,
+// update: update
+
+
 // export public methods here
 module.exports = {
   index: index,
   displayUser: displayUser,
   create: create
-  // show: show,
-  // destroy: destroy,
-  // update: update
 };
