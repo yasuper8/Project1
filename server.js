@@ -7,8 +7,6 @@ var express = require('express'),
 // parse incoming urlencoded form data
 // and populate the req.body object
 app.use(bodyParser.urlencoded({ extended: true }));
-// Serve static files from the `/public` directory:
-app.use(express.static('public'));
 
 // allow cross origin requests (optional)
 // https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS
@@ -17,8 +15,6 @@ app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
-
-
 
 /************
  * DATABASE *
@@ -30,24 +26,42 @@ var db = require('./models');
  * ROUTES *
  **********/
 
- /*
-  * HTML Endpoints
-  */
+// Serve static files from the `/public` directory:
+app.use(express.static('public'));
 
- app.get('/', function homepage(req, res) {
+/*
+* HTML Endpoints
+*/
+
+app.get('/', function homepage(req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
 
 /*
  * JSON API Endpoints
  */
-pp.get('/api', controllers.api.index);
 
-app.get('/api/userList', controllers.userList.displayAllUsers);
-app.get('/api/userList/:id', controllers.userList.displayUser);
+app.get('/api', controllers.api.index);
 
-app.post('/api/userList', controllers.userList.create);
+// app.get('/api/users', controllers.users.index);
 
+
+app.get('/api/users', function(req, res) {
+  db.User.find(function(err, users) {
+    if (err) {
+      return console.log('Get all users error: ' + err);
+    }
+    res.json(users);
+  });
+});
+
+
+
+
+
+// app.get('/api/users/:id', controllers.users.displayUser);
+
+// app.post('/api/users', controllers.users.create);
 
 /**********
  * SERVER *

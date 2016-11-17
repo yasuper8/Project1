@@ -4,6 +4,7 @@ var user_lists = [
   {
     name: "Casey Oneal",
     email: "",
+    password: "",
     nativeLang: ["english"],
     learnLang: ["spanish"],
     currnetCity: "San Francisco",
@@ -14,6 +15,7 @@ var user_lists = [
   {
     name: "Daniel Kingdon",
     email: "",
+    password: "",
     nativeLang: ["english"],
     learnLang: ["chinese"],
     currnetCity: "San Francisco",
@@ -24,6 +26,7 @@ var user_lists = [
   {
     name: "Daniel Finelli",
     email: "",
+    password: "",
     nativeLang: ["english"],
     learnLang: ["japanese"],
     currnetCity: "San Francisco",
@@ -34,6 +37,7 @@ var user_lists = [
   {
     name: "Sophie Luo",
     email: "",
+    password: "",
     nativeLang: ["chinese"],
     learnLang: ["english"],
     currnetCity: "San Francisco",
@@ -44,6 +48,7 @@ var user_lists = [
   {
     name: "Derry Nixon",
     email: "",
+    password: "",
     nativeLang: ["english"],
     learnLang: ["japanese"],
     currnetCity: "San Francisco",
@@ -54,6 +59,7 @@ var user_lists = [
   {
     name: "Emily Johnson",
     email: "",
+    password: "",
     nativeLang: ["english"],
     learnLang: ["chinese"],
     currnetCity: "San Francisco",
@@ -64,6 +70,7 @@ var user_lists = [
   {
     name: "Diane Liu",
     email: "",
+    password: "",
     nativeLang: ["chinese"],
     learnLang: ["russian"],
     currnetCity: "San Francisco",
@@ -74,6 +81,7 @@ var user_lists = [
   {
     name: "Jonathan Hall",
     email: "",
+    password: "",
     nativeLang: ["english"],
     learnLang: ["chinese"],
     currnetCity: "San Francisco",
@@ -84,6 +92,7 @@ var user_lists = [
   {
     name: "Katie Dodd",
     email: "",
+    password: "",
     nativeLang: ["english"],
     learnLang: ["spanish"],
     currnetCity: "San Francisco",
@@ -94,6 +103,7 @@ var user_lists = [
   {
     name: "Kevin Tran",
     email: "",
+    password: "",
     nativeLang: ["english"],
     learnLang: ["spanish"],
     currnetCity: "San Francisco",
@@ -104,6 +114,7 @@ var user_lists = [
   {
     name: "Margaret Ha",
     email: "",
+    password: "",
     nativeLang: ["english"],
     learnLang: ["spanish"],
     currnetCity: "San Francisco",
@@ -114,6 +125,7 @@ var user_lists = [
   {
     name: "Kyle Russell",
     email: "",
+    password: "",
     nativeLang: ["english"],
     learnLang: ["chinese"],
     currnetCity: "San Francisco",
@@ -124,6 +136,7 @@ var user_lists = [
   {
     name: "Martin Uriarte",
     email: "",
+    password: "",
     nativeLang: ["english"],
     learnLang: ["spanish"],
     currnetCity: "San Francisco",
@@ -134,6 +147,7 @@ var user_lists = [
   {
     name: "Solimar Beniquez",
     email: "",
+    password: "",
     nativeLang: ["spanish"],
     learnLang: ["russian"],
     currnetCity: "San Francisco",
@@ -144,6 +158,7 @@ var user_lists = [
   {
     name: "Star Kim",
     email: "",
+    password: "",
     nativeLang: ["korean"],
     learnLang: ["spanish"],
     currnetCity: "San Francisco",
@@ -154,6 +169,7 @@ var user_lists = [
   {
     name: "Stephen Dangerfield",
     email: "",
+    password: "",
     nativeLang: ["english"],
     learnLang: ["chinese"],
     currnetCity: "San Francisco",
@@ -164,6 +180,7 @@ var user_lists = [
   {
     name: "Virginia Chae",
     email: "",
+    password: "",
     nativeLang: ["english"],
     learnLang: ["spanish"],
     currnetCity: "San Francisco",
@@ -174,6 +191,7 @@ var user_lists = [
   {
     name: "Vladyslav Kuliani",
     email: "",
+    password: "",
     nativeLang: ["russian"],
     learnLang: ["chinese"],
     currnetCity: "San Francisco",
@@ -183,7 +201,8 @@ var user_lists = [
   },
   {
     name: "Yasuyoshi Sakamoto",
-    email: "",
+    email: "yasuper8@gmail.com",
+    password: "",
     nativeLang: ["japanese"],
     learnLang : ["english"],
     currnetCity: "San Francisco",
@@ -194,6 +213,7 @@ var user_lists = [
   {
     name: "Justin Castilla",
     email: "",
+    password: "",
     nativeLang: ["english"],
     learnLang: ["spnish"],
     currnetCity: "San Francisco",
@@ -204,6 +224,7 @@ var user_lists = [
   {
     name: "Jean W",
     email: "",
+    password: "",
     nativeLang: ["english"],
     learnLang: ["japanese"],
     currnetCity: "San Francisco",

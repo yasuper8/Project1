@@ -6,18 +6,28 @@ var db = require('../models');
 
 
 // Get All Users
-function displayAllUsers(req, res) {
-  db.User.find(function(err, allUsers) {
+function index(req, res) {
+  db.User.find({},function(err, users) {
     if (err) {
       return console.log('Get users error: ' + err);
     }
-    res.json(allUsers);
+    res.json(users);
   });
 }
 
-//Get a single user
+// Get a single user
 function displayUser(req, res) {
   db.User.findOne({_id: req.params.id}, function(err, user) {
+    res.json(user);
+  });
+}
+
+// Create a new user
+function create(req, res) {
+  console.log('body', req.body);
+  db.User.create(req.body, function(err, user) {
+    if (err) { console.log('error', err); }
+    console.log(user);
     res.json(user);
   });
 }
@@ -25,9 +35,9 @@ function displayUser(req, res) {
 
 // export public methods here
 module.exports = {
-  displayAllUsers: displayAllUsers,
-  displayUser: displayUser
-  // create: create,
+  index: index,
+  displayUser: displayUser,
+  create: create
   // show: show,
   // destroy: destroy,
   // update: update
