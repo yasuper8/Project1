@@ -40,16 +40,16 @@
       <div class="wrapper text-center">
         <strong>Sign in to start learning a new language!</strong>
       </div>
-      <form name="form" class="form-validation">
+      <form name="form" class="form-validation" id="userSignUpForm">
         <div class="text-danger wrapper text-center" ng-show="authError">
 
         </div>
         <div class="list-group list-group-sm">
           <div class="list-group-item">
-            <input type="username" placeholder="Username" class="form-control no-border" ng-model="user.email" required>
+            <input type="username" placeholder="Username" name="userName" class="form-control no-border" ng-model="user.email" required>
           </div>
           <div class="list-group-item">
-             <input type="password" placeholder="Password" class="form-control no-border" ng-model="user.password" required>
+             <input type="password" placeholder="Password" name="userPassword" class="form-control no-border" ng-model="user.password" required>
           </div>
         </div>
         <a href ="#languages" type="submit" class="btn btn-lg btn-info btn-block">Sign Up</a>
