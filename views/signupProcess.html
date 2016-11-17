@@ -35,10 +35,9 @@
 
   <div class="container w-xxl w-auto-xs" ng-controller="SigninFormController" ng-init="app.settings.container = false;">
     <a href class="navbar-brand block m-t">Tell us about yourself!</a>
-    <div class="m-b-lg">
+    <div class="m-b-lg" id="languages">
       <form name="form" class="form-validation">
         <div class="text-danger wrapper text-center" ng-show="authError">
-
         </div>
         <div class="list-group list-group-sm">
           <div class="list-group-item">
@@ -48,9 +47,49 @@
              <input type="learningLang" placeholder="What languages you want to learn?" class="form-control no-border" ng-model="user.password" required>
           </div>
         </div>
-        <button type="submit" class="btn btn-lg btn-info btn-block" a href="signin.html">Next</button>
+        <a href ="#moreInfo" type="submit" class="btn btn-lg btn-info btn-block">Next</a>
       </form>
     </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="m-b-lg" id="moreInfo">
+          <a href class="navbar-brand block m-t">Make it more fun!</a>
+      <form name="form" class="form-validation">
+        <div class="text-danger wrapper text-center" ng-show="authError">
+        </div>
+        <div class="list-group list-group-sm">
+          <div class="list-group-item">
+            <input type="currentCity" placeholder="Choose your current city" class="form-control no-border" ng-model="user.email" required>
+          </div>
+          <div class="list-group-item">
+             <input type="favAnimal" placeholder="What's your favorite animal?" class="form-control no-border" ng-model="user.password" required>
+          </div>
+        </div>
+        <a href ="index.html" type="submit" class="btn btn-lg btn-info btn-block">Next</a>
+      </form>
+    </div>
+
+
+
+
     <div class="text-center" ng-include="'tpl/blocks/page_footer.html'">
     </div>
   </div>
