@@ -1,151 +1,228 @@
+var db = require('./models');
 
-
-var userLists = [
+var user_lists = [
   {
     name: "Casey Oneal",
-    nativeLang: "english",
-    learnLang: "spanish",
+    email: "",
+    nativeLang: ["english"],
+    learnLang: ["spanish"],
     currnetCity: "San Francisco",
-    favoriteAnimal: "wolf"
+    favoriteAnimal: "wolf",
+    profileUrl: "",
+    friends: {type: User.Types.ObjectId, ref: "User"}
   },
   {
     name: "Daniel Kingdon",
-    nativeLang: "english",
-    learnLang: "chinese",
+    email: "",
+    nativeLang: ["english"],
+    learnLang: ["chinese"],
     currnetCity: "San Francisco",
-    favoriteAnimal: "elephant"
+    favoriteAnimal: "elephant",
+    profileUrl: "",
+    friends: {type: User.Types.ObjectId, ref: "User"}
   },
   {
     name: "Daniel Finelli",
-    nativeLang: "english",
-    learnLang: "japanese",
+    email: "",
+    nativeLang: ["english"],
+    learnLang: ["japanese"],
     currnetCity: "San Francisco",
-    favoriteAnimal: "giraffe"
+    favoriteAnimal: "giraffe",
+    profileUrl: "",
+    friends: {type: User.Types.ObjectId, ref: "User"}
   },
   {
     name: "Sophie Luo",
-    nativeLang: "chinese",
-    learnLang: "english",
+    email: "",
+    nativeLang: ["chinese"],
+    learnLang: ["english"],
     currnetCity: "San Francisco",
-    favoriteAnimal: "panda"
+    favoriteAnimal: "panda",
+    profileUrl: "",
+    friends: {type: User.Types.ObjectId, ref: "User"}
   },
   {
     name: "Derry Nixon",
-    nativeLang: "english",
-    learnLang: "japanese",
+    email: "",
+    nativeLang: ["english"],
+    learnLang: ["japanese"],
     currnetCity: "San Francisco",
-    favoriteAnimal: "whale"
+    favoriteAnimal: "whale",
+    profileUrl: "",
+    friends: {type: User.Types.ObjectId, ref: "User"}
   },
   {
     name: "Emily Johnson",
-    nativeLang: "english",
-    learnLang: "chinese",
+    email: "",
+    nativeLang: ["english"],
+    learnLang: ["chinese"],
     currnetCity: "San Francisco",
-    favoriteAnimal: "penguin"
+    favoriteAnimal: "penguin",
+    profileUrl: "",
+    friends: {type: User.Types.ObjectId, ref: "User"}
   },
   {
     name: "Diane Liu",
-    nativeLang: "chinese",
-    learnLang: "russian",
+    email: "",
+    nativeLang: ["chinese"],
+    learnLang: ["russian"],
     currnetCity: "San Francisco",
-    favoriteAnimal: "turtle"
+    favoriteAnimal: "turtle",
+    profileUrl: "",
+    friends: {type: User.Types.ObjectId, ref: "User"}
   },
   {
     name: "Jonathan Hall",
-    nativeLang: "english",
-    learnLang: "chinese",
+    email: "",
+    nativeLang: ["english"],
+    learnLang: ["chinese"],
     currnetCity: "San Francisco",
-    favoriteAnimal: "duck"
+    favoriteAnimal: "duck",
+    profileUrl: "",
+    friends: {type: User.Types.ObjectId, ref: "User"}
   },
   {
     name: "Katie Dodd",
-    nativeLang: "english",
-    learnLang: "spanish",
+    email: "",
+    nativeLang: ["english"],
+    learnLang: ["spanish"],
     currnetCity: "San Francisco",
-    favoriteAnimal: "Koala"
+    favoriteAnimal: "Koala",
+    profileUrl: "",
+    friends: {type: User.Types.ObjectId, ref: "User"}
   },
   {
     name: "Kevin Tran",
-    nativeLang: "english",
-    learnLang: "spanish",
+    email: "",
+    nativeLang: ["english"],
+    learnLang: ["spanish"],
     currnetCity: "San Francisco",
-    favoriteAnimal: "lion"
+    favoriteAnimal: "lion",
+    profileUrl: "",
+    friends: {type: User.Types.ObjectId, ref: "User"}
   },
   {
     name: "Margaret Ha",
-    nativeLang: "english",
-    learnLang: "spanish",
+    email: "",
+    nativeLang: ["english"],
+    learnLang: ["spanish"],
     currnetCity: "San Francisco",
-    favoriteAnimal: "rabbit"
+    favoriteAnimal: "rabbit",
+    profileUrl: "",
+    friends: {type: User.Types.ObjectId, ref: "User"}
   },
   {
     name: "Kyle Russell",
-    nativeLang: "english",
-    learnLang: "chinese",
+    email: "",
+    nativeLang: ["english"],
+    learnLang: ["chinese"],
     currnetCity: "San Francisco",
-    favoriteAnimal: "leopard"
+    favoriteAnimal: "leopard",
+    profileUrl: "",
+    friends: {type: User.Types.ObjectId, ref: "User"}
   },
   {
     name: "Martin Uriarte",
-    nativeLang: "english",
-    learnLang: "spanish",
+    email: "",
+    nativeLang: ["english"],
+    learnLang: ["spanish"],
     currnetCity: "San Francisco",
-    favoriteAnimal: "lion"
+    favoriteAnimal: "lion",
+    profileUrl: "",
+    friends: {type: User.Types.ObjectId, ref: "User"}
   },
   {
     name: "Solimar Beniquez",
-    nativeLang: "spanish",
-    learnLang: "russian",
+    email: "",
+    nativeLang: ["spanish"],
+    learnLang: ["russian"],
     currnetCity: "San Francisco",
-    favoriteAnimal: "giraffe"
+    favoriteAnimal: "giraffe",
+    profileUrl: "",
+    friends: {type: User.Types.ObjectId, ref: "User"}
   },
   {
     name: "Star Kim",
-    nativeLang: "korean",
-    learnLang: "spanish",
+    email: "",
+    nativeLang: ["korean"],
+    learnLang: ["spanish"],
     currnetCity: "San Francisco",
-    favoriteAnimal: "eagle"
+    favoriteAnimal: "eagle",
+    profileUrl: "",
+    friends: {type: User.Types.ObjectId, ref: "User"}
   },
   {
     name: "Stephen Dangerfield",
-    nativeLang: "english",
-    learnLang: "chinese",
+    email: "",
+    nativeLang: ["english"],
+    learnLang: ["chinese"],
     currnetCity: "San Francisco",
-    favoriteAnimal: "elephant"
+    favoriteAnimal: "elephant",
+    profileUrl: "",
+    friends: {type: User.Types.ObjectId, ref: "User"}
   },
   {
     name: "Virginia Chae",
-    nativeLang: "english",
-    learnLang: "spanish",
+    email: "",
+    nativeLang: ["english"],
+    learnLang: ["spanish"],
     currnetCity: "San Francisco",
-    favoriteAnimal: "dolphin"
+    favoriteAnimal: "dolphin",
+    profileUrl: "",
+    friends: {type: User.Types.ObjectId, ref: "User"}
   },
   {
     name: "Vladyslav Kuliani",
-    nativeLang: "russian",
-    learnLang: "chinese",
+    email: "",
+    nativeLang: ["russian"],
+    learnLang: ["chinese"],
     currnetCity: "San Francisco",
-    favoriteAnimal: "horse"
+    favoriteAnimal: "horse",
+    profileUrl: "",
+    friends: {type: User.Types.ObjectId, ref: "User"}
   },
   {
     name: "Yasuyoshi Sakamoto",
-    nativeLang: "japanese",
-    learnLang: "english",
+    email: "",
+    nativeLang: ["japanese"],
+    learnLang : ["english"],
     currnetCity: "San Francisco",
-    favoriteAnimal: "eagle"
+    favoriteAnimal: "eagle",
+    profileUrl: "",
+    friends: {type: User.Types.ObjectId, ref: "User"}
   },
   {
     name: "Justin Castilla",
-    nativeLang: "english",
-    learnLang: "spnish",
+    email: "",
+    nativeLang: ["english"],
+    learnLang: ["spnish"],
     currnetCity: "San Francisco",
-    favoriteAnimal: "puppy"
+    favoriteAnimal: "puppy",
+    profileUrl: "",
+    friends: {type: User.Types.ObjectId, ref: "User"}
   },
   {
     name: "Jean W",
-    nativeLang: "english",
-    learnLang: "japanese",
+    email: "",
+    nativeLang: ["english"],
+    learnLang: ["japanese"],
     currnetCity: "San Francisco",
-    favoriteAnimal: "dolphin"
+    favoriteAnimal: "dolphin",
+    profileUrl: "",
+    friends: {type: User.Types.ObjectId, ref: "User"}
   }
 ];
+
+
+db.User.remove({}, function(err, user) {
+  if(err) {
+    console.log('Error occurred in remove', err);
+  } else {
+    console.log('Removed all users');
+    db.User.create(user_lists, function(err, user) {
+      if (err) { return console.log('err', err); }
+      console.log('Created ' + user.length + ' users');
+      process.exit();
+    });
+  }
+});
