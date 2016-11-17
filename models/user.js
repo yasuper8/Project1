@@ -10,8 +10,8 @@ var UserSchema = new Schema({
   learnLang : Array,
   currentCity: String,
   favoriteAnimal: String,
-  profileUrl: String
-  // friends: [{type: Object.Types.ObjectId, ref: 'User'}]
+  profileUrl: String,
+  friends: [{type: Schema.Types.ObjectId, ref: 'User'}]
 });
 
 var User = mongoose.model('User', UserSchema);

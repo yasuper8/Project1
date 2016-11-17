@@ -1,3 +1,4 @@
+
 function index(req, res) {
   res.json({
     message: "Welcome to Sophie & Yasu's Project 1!",
@@ -8,5 +9,6 @@ function index(req, res) {
     ]
   });
 }
+
 
 module.exports.index = index;
