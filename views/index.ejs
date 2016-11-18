@@ -1,120 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- bootstrap css -->
-  <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <!-- bootstrap css -->
+    <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
 
-  <!-- vendor scripts -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+    <!-- vendor scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
 
-  <!-- application scripts -->
-  <script src="scripts/app.js"></script>
+    <!-- application scripts -->
+    <script src="scripts/app.js"></script>
 
-  <title>Simple Login</title>
+    <title>AppName</title>
 </head>
+
 <body>
 
-  <div class="container text-center">
-    <div class="row">
-      <div class="col-md-6 col-md-offset-3">
-        <h1>Profile</h1>
-        <hr>
-        <h2>Welcome! You're logged in.</h2>
-        <a id="logout" href="/logout" class="btn btn-default">Log Out</a>
-      </div>
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <h1>Profile</h1>
+                <hr>
+                <h2>Welcome! You're logged in.</h2>
+                <a id="logout" href="/logout" class="btn btn-default">Log Out</a>
+            </div>
+        </div>
     </div>
-  </div>
 
-<div class="wrapper-md">
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      Potential Language Exchange Partners Found
-    </div>
-    <div class="table-responsive">
-      <table class="table table-striped b-t b-b">
-          <div id='foundUsers'>
+    <div class="wrapper-md">
+        <div class="panel-heading">
+            Potential Language Exchange Partners Found
+        </div>
+        <div class="table-responsive">
+            <div id='foundUsers'>
 
-          <!-- one album -->
-              <div class="row user">
-                  <div class="col-md-10 col-md-offset-1">
-                      <div class="panel panel-default">
-                          <div class="panel-body">
-                              <!-- begin one user row -->
+                <!-- one user -->
+                <div class="row user">
+                    <div class="panel panel-default">
+                        <!-- begin one user row -->
 
-                                  <div class="col-md-9 col-xs-12">
-                                    <script id="users-template" type="text/x-handlebars-template">
-                                      {{#each users}}
-                                      <div class="list-group">
-                                        <div class='row'>
-                                          <div class="col-md-3 col-xs-12 thumbnail album-art">
+                        <div class="col-md-9 col-xs-12">
+                            <script id="users-template" type="text/x-handlebars-template">
+                                {{#each users}}
+                                <div class="list-group">
+                                    <div class='row'>
+                                        <div class="col-md-3 col-xs-12 thumbnail album-art">
                                             <img src="images/profile.jpg" alt="user image">
-                                          </div>
+                                        </div>
 
-                                          <div class="col-md-9 col-xs-12">
+                                        <div class="col-md-9 col-xs-12">
                                             <ul class="list-group">
-                                              <li class="list-group-item">
-                                                <h4 class='inline-header'>Name:</h4>
-                                                <span class='name'>{{name}}</span>
-                                              </li>
+                                                <li class="list-group-item">
+                                                    <h4 class='inline-header'>Name:</h4>
+                                                    <span class='name'>{{name}}</span>
+                                                </li>
 
-                                              <li class="list-group-item">
-                                                <h4 class='inline-header'>email:</h4>
-                                                <span class='email'>{{email}}</span>
-                                              </li>
+                                                <li class="list-group-item">
+                                                    <h4 class='inline-header'>email:</h4>
+                                                    <span class='email'>{{email}}</span>
+                                                </li>
 
-                                              <li class="list-group-item">
-                                                <h4 class='inline-header'>Native language:</h4>
-                                                <span class='native-lang'>{{NativeLang}}</span>
-                                              </li>
+                                                <li class="list-group-item">
+                                                    <h4 class='inline-header'>Native language:</h4>
+                                                    <span class='native-lang'>{{NativeLang}}</span>
+                                                </li>
 
-                                              <li class="list-group-item">
-                                                <h4 class='inline-header'>Learning Languages:</h4>
-                                                <span class='learning-lang'>{{learnLang}} </span>
-                                              </li>
+                                                <li class="list-group-item">
+                                                    <h4 class='inline-header'>Learning Languages:</h4>
+                                                    <span class='learning-lang'>{{learnLang}} </span>
+                                                </li>
 
-                                              <li class="list-group-item">
-                                                <h4 class="inline-header">Current City:</h4>
-                                                <span class='currnet-city'>{{currentCity}}</span>
-                                              </li>
+                                                <li class="list-group-item">
+                                                    <h4 class="inline-header">Current City:</h4>
+                                                    <span class='currnet-city'>{{currentCity}}</span>
+                                                </li>
 
-                                              <li class="list-group-item">
-                                                <h4 class="inline-header">Favorite Animal:</h4>
-                                                <span class='favoriteAnimal'>{{favoriteAnimal}}</span>
-                                              </li>
+                                                <li class="list-group-item">
+                                                    <h4 class="inline-header">Favorite Animal:</h4>
+                                                    <span class='favoriteAnimal'>{{favoriteAnimal}}</span>
+                                                </li>
 
-                                              <li class="list-group-item">
-                                                <h4 class="inline-header">Friends:</h4>
-                                                <span class='friends'>{{friends}}</span>
-                                              </li>
+                                                <li class="list-group-item">
+                                                    <h4 class="inline-header">Friends:</h4>
+                                                    <span class='friends'>{{friends}}</span>
+                                                </li>
 
                                             </ul>
-                                          </div>
-
+                                            <div class="col-md-3 col-xs-12">
+                                                <a href="mailto:{{email}}">Email Me!</a></p>
+                                            </div>
                                         </div>
-                                      </div>
-                                      {{/each}}
-                                    </script>
-                                  </div>
-                              <!-- end of user row -->
+
+                                    </div>
+                                </div>
+                                {{/each}}
+                            </script>
                         </div>
-                      </div>
-                  </div>
-              </div>
+                        <!-- end of user row -->
+                    </div>
+                </div>
+            </div>
 
-          <!-- end one user -->
-
-      </div>
-        </tbody>
-      </table>
+            <!-- end one user -->
+        </div>
     </div>
-  </div>
-</div>
 </body>
 
 </html>
