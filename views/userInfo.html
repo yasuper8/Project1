@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+
+  <!-- STYLESHEETS -->
+  <link rel="stylesheet" href="../public/styles/styles.css">
+
+  <!-- bootstrap css -->
+  <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+  <!-- local scipts -->
+  <script src="../public/scripts/app.js"></script>
+
+  <title>User Sign up Form</title>
+</head>
+<body>
+
+
+
+<!-- <div class="container">
+  <div>
+    <p>
+      <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+        create account!
+      </button>
+    </p> -->
+    <!-- Colapse for user info form -->
+    <!-- <div class="collapse" id="collapseExample">
+      <div class="card card-block">
+
+      <div id="signupForm" class="app app-header-fixed ">
+
+        <div id="signup" class="signup">
+          <a href class="navbar-brand block m-t">AppName</a>
+          <div class="m-b-lg">
+
+            <div class="wrapper text-center">
+              <strong>Sign in to start learning a new language!</strong>
+            </div>
+
+            <div class="container">
+              <form name="form" class="form-validation col-sx-4" id="userSignUpForm"> -->
+              <!-- put hidden fields in here where you store your data -->
+                <!-- <div class="list-group list-group-sm">
+                  <div class="list-group-item">
+                    <input type="username" name="userName" placeholder="Username" class="form-control no-border" required>
+                  </div>
+                  <div class="list-group-item">
+                    <input type="password" name="password" placeholder="Password" class="form-control no-border" required>
+                  </div>
+                  <div class="list-group-item">
+                    <input type="text" name="nativeLang" placeholder="Choose your native language" class="form-control no-border" required>
+                  </div>
+                  <div class="list-group-item">
+                    <input type="text" name="learningLang" placeholder="What languages you want to learn?" class="form-control no-border" equired>
+                  </div>
+                  <div class="list-group-item">
+                    <input type="text" name="city" placeholder="Choose your current city" class="form-control no-border" required>
+                  </div>
+                  <div class="list-group-item">
+                    <input type="text" name="favAnimal" placeholder="What's your favorite animal?" class="form-control no-border" required>
+                  </div>
+                <button type="submit" class="btn btn-lg btn-info btn-block">Sign Up</a>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center">
+          <p>
+            <small class="text-muted">project 1 - language exchange app for GA WDI.<br> Authors: Yasu and Sophie</small>
+          </p>
+        </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<div class="container row">
+  <div class="col-xs-6 col-sm-4">
+  </div>
+  <div class="col-xs-6 col-sm-4">
+    <h1>Welcome to XXXXXX</h1>
+  </div>
+  <div class="col-xs-6 col-sm-4">
+  </div>
+</div>
+
+<div class="container row">
+  <div class="row">
+    <div class="col-xs-6 col-sm-4">
+    </div>
+    <div class="col-xs-6 col-sm-4">
+      <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+        Sign me up!
+      </button>
+    </div>
+    <div class="col-xs-6 col-sm-4">
+    </div>
+  </div>
+  <div class="collapse" id="collapseExample">
+    <div class="card card-block">
+      <div class="container row" id="userSignUpForm">
+        <form class="form-horizontal">
+        <fieldset>
+
+        <!-- Form Name -->
+        <legend>Create My Account!</legend>
+
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="email">email :</label>
+          <div class="col-md-4">
+          <input id="email" name="email" type="text" placeholder="email" class="form-control input-md" required="">
+
+          </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="navtiveLang">Native Language(s)</label>
+          <div class="col-md-4">
+          <input id="navtiveLang" name="navtiveLang" type="text" placeholder="What is your native language(s)" class="form-control input-md" required="">
+
+          </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="learnLang">Language(s) to Practice :</label>
+          <div class="col-md-4">
+          <input id="learnLang" name="learnLang" type="text" placeholder="Which language(s) do you like to practice?" class="form-control input-md" required="">
+
+          </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="city">Current City</label>
+          <div class="col-md-4">
+          <input id="city" name="city" type="text" placeholder="Which city do you live?" class="form-control input-md" required="">
+
+          </div>
+        </div>
+
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="favAnimal">A Favorite Animal :</label>
+          <div class="col-md-4">
+          <input id="favAnimal" name="favAnimal" type="text" placeholder="What is your favorite animal?" class="form-control input-md" required="">
+
+          </div>
+        </div>
+
+        <!-- Button -->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="singlebutton">Single Button</label>
+          <div class="col-md-4">
+            <button id="singlebutton" name="singlebutton" class="btn btn-primary">Button</button>
+          </div>
+        </div>
+
+        </fieldset>
+        </form>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+
+</body>
+</html>

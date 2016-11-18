@@ -13,3 +13,13 @@
   vertical-align: baseline;
   margin-right: 12px;
 }
+ /*body {
+   background-image: url("../images/project1-01.jpg");
+   background-repeat: no-repeat;
+   background-size: contain;;
+ }*/
+
+
+#formSignUp {
+  max-width: 80%
+}

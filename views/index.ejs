@@ -1,104 +1,131 @@
 <!DOCTYPE html>
-<<<<<<< HEAD:views/index.html
+
 <html lang="en" class="">
 
 <head>
-    <meta charset="utf-8" />
-    <title>ga project 1</title>
-    <meta name="description" content="project 1 - language exchange app for GA WDI. Authors: Yasu and Sophie" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta charset="utf-8" />
+  <title>ga project 1</title>
+  <meta name="description" content="project 1 - language exchange app for GA WDI. Authors: Yasu and Sophie" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-    <!-- STYLESHEETS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" href="../public/styles/styles.css">
+  <!-- STYLESHEETS -->
 
-    <!-- VENDOR SCRIPTS -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+  <link rel="stylesheet" href="../public/styles/styles.css">
 
-    <!-- APPLICATION SCRIPTS -->
-    <script src="../public/scripts/app.js"></script>
-=======
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
->>>>>>> aaf5ee2608a17c8d9ef3592fde4c58c0e59fa45e:views/index.ejs
+  <!-- VENDOR SCRIPTS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
 
-  <!-- bootstrap css -->
-  <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <!-- APPLICATION SCRIPTS -->
+  <script src="../public/scripts/app.js"></script>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-  <script src="scripts/app.js"></script>
+  <html lang="en">
 
-  <title>Simple Login</title>
-</head>
 
-<body>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<<<<<<< HEAD:views/index.html
-=======
-  <div class="container text-center">
-    <div class="row">
-      <div class="col-md-6 col-md-offset-3">
-        <h1>Profile</h1>
-        <hr>
-        <h2>Welcome! You're logged in as <%= user.email %>.</h2>
-        <a id="logout" href="/logout" class="btn btn-default">Log Out</a>
+
+    <!-- bootstrap css -->
+    <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="scripts/app.js"></script>
+
+    <title>Simple Login</title>
+  </head>
+
+  <body>
+
+    <div class="container text-center">
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <h1>Profile</h1>
+          <hr>
+          <h2>Welcome! You're logged in as <%= user.email %>.</h2>
+          <a id="logout" href="/logout" class="btn btn-default">Log Out</a>
+        </div>
       </div>
     </div>
-  </div>
 
-<div class="wrapper-md">
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      Potential Language Exchange Partners Found
-    </div>
-    <div class="table-responsive">
-      <table class="table table-striped b-t b-b">
+    <div class="wrapper-md">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          Potential Language Exchange Partners Found
+        </div>
+        <!-- <div class="table-responsive"> -->
+          <!-- <table class="table table-striped b-t b-b"> -->
+
+
           <div id='foundUsers'>
->>>>>>> aaf5ee2608a17c8d9ef3592fde4c58c0e59fa45e:views/index.ejs
 
-    <div id="signupForm" class="app app-header-fixed ">
+            <div class="container">
+              <div>
+                <p>
+                  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                   Tell us about you
+                  </button>
+                </p>
+                <!-- Colapse for user info form -->
+                <div class="collapse" id="collapseExample">
+                  <div class="card card-block">
 
-        <div id="signup" class="signup">
-            <a href class="navbar-brand block m-t">AppName</a>
-            <div class="m-b-lg">
+                          <div id="signupForm" class="app app-header-fixed ">
 
-                <div class="wrapper text-center">
-                    <strong>Sign in to start learning a new language!</strong>
+                          <div id="signup" class="signup">
+                          <a href class="navbar-brand block m-t">AppName</a>
+                            <div class="m-b-lg">
+
+                              <div class="wrapper text-center">
+                                <strong>Sign in to start learning a new language!</strong>
+                              </div>
+
+                              <div class="container">
+                              <form name="form" class="form-validation" id="userSignUpForm">
+                                <!-- put hidden fields in here where you store your data -->
+                                <div class="list-group list-group-sm">
+                                  <div class="list-group-item">
+                                    <input type="username" name="userName" placeholder="Username" class="form-control no-border" required>
+                                  </div>
+                                  <div class="list-group-item">
+                                    <input type="password" name="password" placeholder="Password" class="form-control no-border" required>
+                                  </div>
+                                  <div class="list-group list-group-sm">
+                                    <div class="list-group-item">
+                                      <input type="text" name="nativeLang" placeholder="Choose your native language" class="form-control no-border" required>
+                                    </div>
+                                    <div class="list-group-item">
+                                      <input type="text" name="learningLang" placeholder="What languages you want to learn?" class="form-control no-border" equired>
+                                    </div>
+                                    <div class="list-group-item">
+                                      <input type="text" name="city" placeholder="Choose your current city" class="form-control no-border" required>
+                                    </div>
+                                    <div class="list-group-item">
+                                      <input type="text" id="favoriteAnimal" name="favAnimal" placeholder="What's your favorite animal?" class="form-control no-border" required>
+                                    </div>
+                                  </div>
+                                  <button type="submit" class="btn btn-lg btn-info btn-block">Sign Up</a>
+                                </div>
+                              </form>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="text-center">
+                            <p>
+                              <small class="text-muted">project 1 - language exchange app for GA WDI.<br> Authors: Yasu and Sophie</small>
+                            </p>
+                          </div>
+
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
+              </div>
 
-                <div class="container">
-                    <form name="form" class="form-validation" id="userSignUpForm">
-                        <!-- put hidden fields in here where you store your data -->
-                        <div class="list-group list-group-sm">
-                            <div class="list-group-item">
-                                <input type="username" name="userName" placeholder="Username" class="form-control no-border" required>
-                            </div>
-                            <div class="list-group-item">
-                                <input type="password" name="password" placeholder="Password" class="form-control no-border" required>
-                            </div>
-                            <div class="list-group list-group-sm">
-                                <div class="list-group-item">
-                                    <input type="text" name="nativeLang" placeholder="Choose your native language" class="form-control no-border" required>
-                                </div>
-                                <div class="list-group-item">
-                                    <input type="text" name="learningLang" placeholder="What languages you want to learn?" class="form-control no-border" equired>
-                                </div>
-                                <div class="list-group-item">
-                                    <input type="text" name="city" placeholder="Choose your current city" class="form-control no-border" required>
-                                </div>
-                                <div class="list-group-item">
-                                    <input type="text" name="favAnimal" placeholder="What's your favorite animal?" class="form-control no-border" required>
-                                </div>
-                            </div>
-                            <button type="submit" class="btn btn-lg btn-info btn-block">Sign Up</a>
-      </form>
-    </div>
-  </div>
-</div>
 
   <!-- <div id="languages" class="languages">
     <a href class="navbar-brand block m-t">Tell us about yourself!</a>
@@ -140,96 +167,80 @@
   });
     </script> -->
 
-    <div class="text-center">
-      <p>
-        <small class="text-muted">project 1 - language exchange app for GA WDI.<br> Authors: Yasu and Sophie</small>
-      </p>
-    </div>
 
-  </div>
+
+
+  <script id='user-template' type='text/x-handlebars-template'>
+    <!-- one album -->
+    <div class="row user" data-album-id="{{_id}}">
+
+      <div class="col-md-10 col-md-offset-1">
+        <div class="panel panel-default">
+          <div class="panel-body">
+
+
+            <!-- begin album internal row -->
+            <div class='row'>
+              <div class="col-md-3 col-xs-12 thumbnail album-art">
+                <img src="{{profileUrl}}" alt="user image">
+              </div>
+
+              <div class="col-md-9 col-xs-12">
+                <ul class="list-group">
+                  <li class="list-group-item">
+                    <h4 class='inline-header'>Name:</h4>
+                    <span class='name'>{{name}}</span>
+                  </li>
+
+                  <li class="list-group-item">
+                    <h4 class='inline-header'>email:</h4>
+                    <span class='email'>{{email}}</span>
+                  </li>
+
+                  <li class="list-group-item">
+                    <h4 class='inline-header'>Native language:</h4>
+                    <span class='native-lang'>{{NativeLang}}</span>
+                  </li>
+
+                  <li class="list-group-item">
+                    <h4 class='inline-header'>Learning Languages:</h4>
+                    <span class='learning-lang'>{{learnLang}} </span>
+                  </li>
+
+                  <li class="list-group-item">
+                    <h4 class="inline-header">Current City:</h4>
+                    <span class='currnet-city'>{{currentCity}}</span>
+                  </li>
+
+                  <li class="list-group-item">
+                    <h4 class="inline-header">Favorite Animal:</h4>
+                    <span class='favoriteAnimal'>{{favoriteAnimal}}</span>
+                  </li>
+
+                  <li class="list-group-item">
+                    <h4 class="inline-header">Friends:</h4>
+                    <span class='friends'>{{friends}}</span>
+                  </li>
+
+                </ul>
+              </div>
+
+            </div>
+            <!-- end of album internal row -->
+
+            <div class='panel-footer'>
+              <button class='btn btn-primary add-song'>Add Song</button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end one album -->
+  </script>
+
 
 
   </body>
 
-
-
-
-
-
-
-
-
-
-
-
-<div id='albums'>
-        <script id='user-template' type='text/x-handlebars-template'>
-          <!-- one album -->
-          <div class="row user" data-album-id="{{_id}}">
-
-            <div class="col-md-10 col-md-offset-1">
-              <div class="panel panel-default">
-                <div class="panel-body">
-
-
-                <!-- begin album internal row -->
-                  <div class='row'>
-                    <div class="col-md-3 col-xs-12 thumbnail album-art">
-                      <img src="{{profileUrl}}" alt="user image">
-                    </div>
-
-                    <div class="col-md-9 col-xs-12">
-                      <ul class="list-group">
-                        <li class="list-group-item">
-                          <h4 class='inline-header'>Name:</h4>
-                          <span class='name'>{{name}}</span>
-                        </li>
-
-                        <li class="list-group-item">
-                          <h4 class='inline-header'>email:</h4>
-                          <span class='email'>{{email}}</span>
-                        </li>
-
-                        <li class="list-group-item">
-                          <h4 class='inline-header'>Native language:</h4>
-                          <span class='native-lang'>{{NativeLang}}</span>
-                        </li>
-
-                        <li class="list-group-item">
-                          <h4 class='inline-header'>Learning Languages:</h4>
-                          <span class='learning-lang'>{{learnLang}} </span>
-                        </li>
-
-                        <li class="list-group-item">
-                          <h4 class="inline-header">Current City:</h4>
-                          <span class='currnet-city'>{{currentCity}}</span>
-                        </li>
-
-                        <li class="list-group-item">
-                          <h4 class="inline-header">Favorite Animal:</h4>
-                          <span class='favoriteAnimal'>{{favoriteAnimal}}</span>
-                        </li>
-
-                        <li class="list-group-item">
-                          <h4 class="inline-header">Friends:</h4>
-                          <span class='friends'>{{friends}}</span>
-                        </li>
-
-                      </ul>
-                    </div>
-
-                  </div>
-                  <!-- end of album internal row -->
-
-                  <div class='panel-footer'>
-                    <button class='btn btn-primary add-song'>Add Song</button>
-                  </div>
-
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- end one album -->
-        </script>
-
-</html>
+  </html>
