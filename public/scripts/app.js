@@ -32,20 +32,15 @@ $('#signup-form').on('submit', function(e) {
 })
 
 
+      $.ajax({
+        method: 'GET',
+        url: '/api/users',
+        type: 'json',
+        success: getUserSuccess,
+        error: getUserError
+      });
 
 
-
-    // $('#userSignUpLang').on('submit', function(e) {
-    //   e.preventDefault();
-    //   console.log('new user languages, passwords serialized', $(this).serialize());
-    //   $.ajax({
-    //     method: 'POST',
-    //     url: '/api/users',
-    //     data: $(this).serialize(),
-    //     success: newUserSuccess,
-    //     error: newUserError
-    //   });
-    // });
     //
     // $('#userSignUpCityAnimal').on('submit', function(e) {
     //   e.preventDefault();
@@ -59,9 +54,22 @@ $('#signup-form').on('submit', function(e) {
     //   });
     // });
 
-    function newUserSuccess() {
-      
+    function getUserSuccess(json) {
+        allUsers = json;
+        renderUser();
     }
+
+    function getUserError(a,b,c) {
+      console.log("can't get user!")
+    }
+
+    function renderUser() {
+      var source = $('#users-template').html();
+      var template = Handlebars.compile(source);
+      console.log(allUsers)
+      var usersHtml = template({ users: allUsers });
+      $('#foundUsers').prepend(usersHtml);
+    };
 
 
 

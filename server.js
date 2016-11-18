@@ -62,9 +62,9 @@ var User = require('./models/user');
 * HTML Endpoints
 */
 
-// app.get('/', function homepage(req, res) {
-//   res.sendFile(__dirname + '/views/index.html');
-// });
+app.get('/', function homepage(req, res) {
+  res.sendFile(__dirname + '/views/index.html');
+});
 
 app.get('/signup', function (req, res) {
   res.render('signup');
