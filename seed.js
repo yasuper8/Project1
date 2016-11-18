@@ -174,7 +174,7 @@ var user_lists = [
     learnLang: ["chinese"],
     currnetCity: "San Francisco",
     favoriteAnimal: "elephant",
-    profileUrl: ""
+    profileUrl: "https://media0.giphy.com/media/85AU17hrcbCCMko/200.gif#2"
 
   },
   {
@@ -196,7 +196,7 @@ var user_lists = [
     learnLang: ["chinese"],
     currnetCity: "San Francisco",
     favoriteAnimal: "horse",
-    profileUrl: ""
+    profileUrl: "https://media3.giphy.com/media/bsyc2LUo9ToWY/200.gif#18"
 
   },
   {
@@ -206,7 +206,7 @@ var user_lists = [
     nativeLang: ["japanese"],
     learnLang : ["english"],
     currnetCity: "San Francisco",
-    favoriteAnimal: "eagle",
+    favoriteAnimal: "dog",
     profileUrl: ""
 
   },
@@ -229,7 +229,7 @@ var user_lists = [
     learnLang: ["japanese"],
     currnetCity: "San Francisco",
     favoriteAnimal: "dolphin",
-    profileUrl: ""
+    profileUrl: "https://media0.giphy.com/media/l41m6YZzaqxZQp4IM/200.gif#35"
 
   }
 ];
