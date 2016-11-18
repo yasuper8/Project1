@@ -2,7 +2,8 @@
 var express = require('express'),
     app = express(),
     bodyParser = require('body-parser'),
-    controllers = require('./controllers');
+    controllers = require('./controllers'),
+    session = require('express-session');
 
 // MIDDLEWARE
 
@@ -24,6 +25,13 @@ app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
+
+app.use(session({
+  saveUninitialized: true,
+  resave: true,
+  secret: 'SuperSecretCookie',
+  cookie: { maxAge: 30 * 60 * 1000 } // 30 minute cookie lifespan (in milliseconds)
+}));
 
 
 /************
@@ -71,8 +79,17 @@ app.get('/login', function (req, res) {
 //a post sessions route to store our session data
 app.post('/sessions', function (req, res) {
   db.User.authenticate(req.body.email, req.body.password, function (err, user) {
-      res.json(user);
+      req.session.userId = user._id; //this is because we are not getting the info!!!
+      res.redirect('/profile');
     });
+});
+
+// show user profile page
+app.get('/profile', function (req, res) {
+  // find the user currently logged in
+  User.findOne({_id: req.session.userId}, function (err, currentUser) {
+    res.render('index.ejs', {user: currentUser})
+  });
 });
 
 /*
