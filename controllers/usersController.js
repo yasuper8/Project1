@@ -11,6 +11,7 @@ function index(req, res) {
     if (err) {
       return console.log('Get users error: ' + err);
     }
+    console.log(users)
     res.json(users);
   });
 }
