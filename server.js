@@ -92,6 +92,14 @@ app.get('/profile', function (req, res) {
   });
 });
 
+
+//logout
+app.get('/logout', function (req, res) {
+  // remove the session user id
+  req.session.userId = null;
+  // redirect to login (for now)
+  res.redirect('/login');
+});
 /*
  * JSON API Endpoints
  */
