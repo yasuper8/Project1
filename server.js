@@ -2,7 +2,8 @@
 var express = require('express'),
     app = express(),
     bodyParser = require('body-parser'),
-    controllers = require('./controllers');
+    controllers = require('./controllers'),
+    session = require('express-session');
 
 // MIDDLEWARE
 
@@ -25,6 +26,13 @@ app.use(function(req, res, next) {
   next();
 });
 
+app.use(session({
+  saveUninitialized: true,
+  resave: true,
+  secret: 'SuperSecretCookie',
+  cookie: { maxAge: 30 * 60 * 1000 } // 30 minute cookie lifespan (in milliseconds)
+}));
+
 
 /************
  * DATABASE *
@@ -45,7 +53,7 @@ var User = require('./models/user');
  // Sign up route - creates a new user with a secure password
  app.post('/users', function (req, res) {
    // use the email and password to authenticate here
-   User.createSecure(req.body.email, req.body.password, req.body.name, req.body.nativeLang, req.body.learnLang, req.body.current, req.body.favoriteAnimal, req.body.profileUrl, req.body.friends, function (err, user) {
+   db.User.createSecure(req.body.email, req.body.password, req.body.name, req.body.nativeLang, req.body.learnLang, req.body.current, req.body.favoriteAnimal, req.body.profileUrl, req.body.friends, function (err, user) {
      res.json(user);
    });
  });
@@ -70,10 +78,28 @@ app.get('/login', function (req, res) {
 
 //a post sessions route to store our session data
 app.post('/sessions', function (req, res) {
-  console.log('body', res.body)
-  res.json(res.body) //not sure if this is correct
-})
+  db.User.authenticate(req.body.email, req.body.password, function (err, user) {
+      req.session.userId = user._id; //this is because we are not getting the info!!!
+      res.redirect('/profile');
+    });
+});
 
+// show user profile page
+app.get('/profile', function (req, res) {
+  // find the user currently logged in
+  User.findOne({_id: req.session.userId}, function (err, currentUser) {
+    res.render('index.ejs', {user: currentUser})
+  });
+});
+
+
+//logout
+app.get('/logout', function (req, res) {
+  // remove the session user id
+  req.session.userId = null;
+  // redirect to login (for now)
+  res.redirect('/login');
+});
 /*
  * JSON API Endpoints
  */
