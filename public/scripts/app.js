@@ -22,7 +22,7 @@ $(document).ready(function(){
 $('#signup-form').on('submit', function(e) {
 
     console.log("form clicked!")
-    //  e.preventDefault();
+    e.preventDefault();
     var signupData = $("#signup-form").serialize();
       console.log(signupData);
       // send POST request to /users with the form data
@@ -30,6 +30,22 @@ $('#signup-form').on('submit', function(e) {
         console.log(response);
       });
 })
+
+
+//login form
+$('#login-form').on('submit', function(e) {
+    console.log("form clicked!")
+     e.preventDefault();
+    var loginData = $("#login-form").serialize();
+      console.log(loginData);
+      // send POST request to /users with the form data
+      $.post('/sessions', loginData, function(response){
+        console.log(response);
+      });
+})
+
+
+
 
     // $('#userSignUpLang').on('submit', function(e) {
     //   e.preventDefault();

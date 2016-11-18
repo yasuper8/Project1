@@ -37,7 +37,7 @@ var User = require('./models/user');
  * ROUTES *
  **********/
  //is this /users or /signup?
- app.post('/users', function (req, res) {
+ app.post('/signup', function (req, res) {
    console.log('request body: ', req.body);
    res.json("it worked!");
  });
@@ -64,9 +64,15 @@ app.get('/signup', function (req, res) {
 
 // login route with placeholder response
 app.get('/login', function (req, res) {
-  res.send('login coming soon');
+  res.render('login');
 });
 
+
+//a post sessions route to store our session data
+app.post('/sessions', function (req, res) {
+  console.log('body', res.body)
+  res.json(res.body) //not sure if this is correct
+})
 
 /*
  * JSON API Endpoints
