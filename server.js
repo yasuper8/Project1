@@ -4,9 +4,18 @@ var express = require('express'),
     bodyParser = require('body-parser'),
     controllers = require('./controllers');
 
+// MIDDLEWARE
+
+// Serve static files from the `/public` directory:
+app.use(express.static('public'));
+
 // parse incoming urlencoded form data
 // and populate the req.body object
 app.use(bodyParser.urlencoded({ extended: true }));
+
+
+//renders signup and signin pages
+app.set('view engine', 'ejs');
 
 // allow cross origin requests (optional)
 // https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS
@@ -16,26 +25,54 @@ app.use(function(req, res, next) {
   next();
 });
 
+
 /************
  * DATABASE *
  ************/
 
 var db = require('./models');
+var User = require('./models/user');
 
 /**********
  * ROUTES *
  **********/
+ //is this /users or /signup?
+ app.post('/signup', function (req, res) {
+   console.log('request body: ', req.body);
+   res.json("it worked!");
+ });
 
-// Serve static files from the `/public` directory:
-app.use(express.static('public'));
+ // Sign up route - creates a new user with a secure password
+ app.post('/users', function (req, res) {
+   // use the email and password to authenticate here
+   User.createSecure(req.body.email, req.body.password, req.body.name, req.body.nativeLang, req.body.learnLang, req.body.current, req.body.favoriteAnimal, req.body.profileUrl, req.body.friends, function (err, user) {
+     res.json(user);
+   });
+ });
 
 /*
 * HTML Endpoints
 */
 
-app.get('/', function homepage(req, res) {
-  res.sendFile(__dirname + '/views/index.html');
+// app.get('/', function homepage(req, res) {
+//   res.sendFile(__dirname + '/views/index.html');
+// });
+
+app.get('/signup', function (req, res) {
+  res.render('signup');
 });
+
+// login route with placeholder response
+app.get('/login', function (req, res) {
+  res.render('login');
+});
+
+
+//a post sessions route to store our session data
+app.post('/sessions', function (req, res) {
+  console.log('body', res.body)
+  res.json(res.body) //not sure if this is correct
+})
 
 /*
  * JSON API Endpoints
