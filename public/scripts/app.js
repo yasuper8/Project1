@@ -20,11 +20,11 @@ $(document).ready(function(){
 
 //signup button clicked
 $('#signup-form').on('submit', function(e) {
-
     console.log("form clicked!")
+    console.log($('#cityDropdown option:selected').text());
     e.preventDefault();
     var signupData = $("#signup-form").serialize();
-      console.log(signupData);
+      //console.log(signupData);
       // send POST request to /users with the form data
       $.post('/users', signupData, function(response){
         console.log(response);
@@ -32,32 +32,15 @@ $('#signup-form').on('submit', function(e) {
 })
 
 
-//login form
-// $('#login-form').on('submit', function(e) {
-//     console.log("form clicked!")
-//      e.preventDefault();
-//     var loginData = $("#login-form").serialize();
-//       console.log(loginData);
-//       // send POST request to /users with the form data
-//       $.post('/sessions', loginData, function(response){
-//         console.log("login" , response);
-//       });
-// })
+      $.ajax({
+        method: 'GET',
+        url: '/api/users',
+        type: 'json',
+        success: getUserSuccess,
+        error: getUserError
+      });
 
 
-
-
-    // $('#userSignUpLang').on('submit', function(e) {
-    //   e.preventDefault();
-    //   console.log('new user languages, passwords serialized', $(this).serialize());
-    //   $.ajax({
-    //     method: 'POST',
-    //     url: '/api/users',
-    //     data: $(this).serialize(),
-    //     success: newUserSuccess,
-    //     error: newUserError
-    //   });
-    // });
     //
     // $('#userSignUpCityAnimal').on('submit', function(e) {
     //   e.preventDefault();
@@ -71,9 +54,15 @@ $('#signup-form').on('submit', function(e) {
     //   });
     // });
 
-    function newUserSuccess() {
-
+    function getUserSuccess(json) {
+        allUsers = json;
+        renderUser();
     }
+
+    function getUserError(a,b,c) {
+      console.log("can't get user!")
+    }
+
 
     // Getting data form giphy api
 
@@ -101,12 +90,13 @@ $('#signup-form').on('submit', function(e) {
 
 
 
-
-
-
-
-
-
+    function renderUser() {
+      var source = $('#users-template').html();
+      var template = Handlebars.compile(source);
+      console.log(allUsers)
+      var usersHtml = template({ users: allUsers });
+      $('#foundUsers').prepend(usersHtml);
+    };
 
 
 
