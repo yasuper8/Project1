@@ -20,8 +20,8 @@ $(document).ready(function(){
 
 //signup button clicked
 $('#signup-form').on('submit', function(e) {
-
     console.log("form clicked!")
+    console.log($('#cityDropdown option:selected').text());
     e.preventDefault();
     var signupData = $("#signup-form").serialize();
       console.log(signupData);
