@@ -24,7 +24,7 @@ $('#signup-form').on('submit', function(e) {
     console.log($('#cityDropdown option:selected').text());
     e.preventDefault();
     var signupData = $("#signup-form").serialize();
-      console.log(signupData);
+      //console.log(signupData);
       // send POST request to /users with the form data
       $.post('/users', signupData, function(response){
         console.log(response);
