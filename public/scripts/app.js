@@ -40,7 +40,7 @@ $('#login-form').on('submit', function(e) {
       console.log(loginData);
       // send POST request to /users with the form data
       $.post('/sessions', loginData, function(response){
-        console.log(response);
+        console.log("login" , response);
       });
 })
 

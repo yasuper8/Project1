@@ -45,7 +45,7 @@ var User = require('./models/user');
  // Sign up route - creates a new user with a secure password
  app.post('/users', function (req, res) {
    // use the email and password to authenticate here
-   User.createSecure(req.body.email, req.body.password, req.body.name, req.body.nativeLang, req.body.learnLang, req.body.current, req.body.favoriteAnimal, req.body.profileUrl, req.body.friends, function (err, user) {
+   db.User.createSecure(req.body.email, req.body.password, req.body.name, req.body.nativeLang, req.body.learnLang, req.body.current, req.body.favoriteAnimal, req.body.profileUrl, req.body.friends, function (err, user) {
      res.json(user);
    });
  });
@@ -70,9 +70,10 @@ app.get('/login', function (req, res) {
 
 //a post sessions route to store our session data
 app.post('/sessions', function (req, res) {
-  console.log('body', res.body)
-  res.json(res.body) //not sure if this is correct
-})
+  db.User.authenticate(req.body.email, req.body.password, function (err, user) {
+      res.json(user);
+    });
+});
 
 /*
  * JSON API Endpoints

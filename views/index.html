@@ -1,0 +1,160 @@
+<<<<<<< HEAD
+=======
+<!DOCTYPE html>
+<html lang="en" class="">
+<head>
+  <meta charset="utf-8" />
+  <title>ga project 1</title>
+  <meta name="description" content="project 1 - language exchange app for GA WDI. Authors: Yasu and Sophie" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+  <!-- STYLESHEETS -->
+  <!-- TODO: can we get rid of some of these? -->
+  <link rel="stylesheet" href="../public/styles/animate.css" type="text/css" />
+  <link rel="stylesheet" href="../public/styles/font-awesome.min.css" type="text/css" />
+  <link rel="stylesheet" href="../public/styles/simple-line-icons.css" type="text/css" />
+  <link rel="stylesheet" href="../public/styles/bootstrap.css" type="text/css" />
+
+  <link rel="stylesheet" href="../public/styles/font.css" type="text/css" />
+  <link rel="stylesheet" href="../public/styles/main.css" type="text/css" />
+  <link rel="stylesheet" href="../public/styles/app.css" type="text/css" />
+
+  <!-- VENDOR SCRIPTS -->
+  <!-- TODO: add more vendor scripts if needed -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+
+  <!-- APPLICATION SCRIPTS -->
+  <!-- TODO: need to change the route when file structure is finalized -->
+  <script src="../public/scripts/app.js"></script>
+
+</head>
+<body>
+
+<div class="wrapper-md">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      Potential Language Exchange Partners Found
+    </div>
+    <div class="table-responsive">
+      <table class="table table-striped b-t b-b">
+          <div id='foundUsers'>
+
+          <!-- one album -->
+              <div class="row user">
+                  <div class="col-md-10 col-md-offset-1">
+                      <div class="panel panel-default">
+                          <div class="panel-body">
+                              <!-- begin album internal row -->
+                                  <div class="col-md-3 col-xs-12 thumbnail album-art">
+                                      <img src="./public/images/Yasu_Photography03" alt="profile image">
+                                  </div>
+                                  <div class="col-md-9 col-xs-12">
+                                      <div class="list-group">
+                                          <p>
+                                            <!-- //handlebars -->
+                                          </p>
+                                      </div>
+                                  </div>
+                              <!-- end of album internal row -->
+
+                        </div>
+                      </div>
+                  </div>
+              </div>
+
+          <!-- end one album -->
+
+      </div>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id='albums'>
+        <script id='user-template' type='text/x-handlebars-template'>
+          <!-- one album -->
+          <div class="row user" data-album-id="{{_id}}">
+
+            <div class="col-md-10 col-md-offset-1">
+              <div class="panel panel-default">
+                <div class="panel-body">
+
+
+                <!-- begin album internal row -->
+                  <div class='row'>
+                    <div class="col-md-3 col-xs-12 thumbnail album-art">
+                      <img src="{{profileUrl}}" alt="user image">
+                    </div>
+
+                    <div class="col-md-9 col-xs-12">
+                      <ul class="list-group">
+                        <li class="list-group-item">
+                          <h4 class='inline-header'>Name:</h4>
+                          <span class='name'>{{name}}</span>
+                        </li>
+
+                        <li class="list-group-item">
+                          <h4 class='inline-header'>email:</h4>
+                          <span class='email'>{{email}}</span>
+                        </li>
+
+                        <li class="list-group-item">
+                          <h4 class='inline-header'>Native language:</h4>
+                          <span class='native-lang'>{{NativeLang}}</span>
+                        </li>
+
+                        <li class="list-group-item">
+                          <h4 class='inline-header'>Learning Languages:</h4>
+                          <span class='learning-lang'>{{learnLang}} </span>
+                        </li>
+
+                        <li class="list-group-item">
+                          <h4 class="inline-header">Current City:</h4>
+                          <span class='currnet-city'>{{currentCity}}</span>
+                        </li>
+
+                        <li class="list-group-item">
+                          <h4 class="inline-header">Favorite Animal:</h4>
+                          <span class='favoriteAnimal'>{{favoriteAnimal}}</span>
+                        </li>
+
+                        <li class="list-group-item">
+                          <h4 class="inline-header">Friends:</h4>
+                          <span class='friends'>{{friends}}</span>
+                        </li>
+
+                      </ul>
+                    </div>
+
+                  </div>
+                  <!-- end of album internal row -->
+
+                  <div class='panel-footer'>
+                    <button class='btn btn-primary add-song'>Add Song</button>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- end one album -->
+        </script>
+
+</html>
+>>>>>>> 889d9b6ac3582f9d7c3f46ece7f8423168b75d7b
