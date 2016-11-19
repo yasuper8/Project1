@@ -222,7 +222,7 @@ var user_lists = [
 
   },
   {
-    name: "Jean W",
+    name: "Jean Weatherwax",
     email: "Jean@ga.com",
     password: "",
     nativeLang: ["english"],
