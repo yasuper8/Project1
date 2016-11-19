@@ -84,7 +84,7 @@ app.get('/login', function(req, res) {
 app.post('/sessions', function(req, res) {
     db.User.authenticate(req.body.email, req.body.password, function(err, user) {
         if (user) {
-            req.session.userId = user._id; //this is because we are not getting the info!!!
+            req.session.userId = user._id;
             res.redirect('/profile');
         } else {
           res.redirect('/login'); //do something meaninful here to alert bad password or un
@@ -101,10 +101,28 @@ app.get('/profile', function(req, res) {
         res.render('index.ejs', {
             user: currentUser
         })
+
     });
 });
 
+// show user profile page
+app.get('/api/languages/:id', function(req, res) {
+    // find the user currently logged in
+    User.findOne({
+        _id: req.params.id
+    }, function(err, currentUser) {
+      if(err){return console.log("ERR: " , err);}
+      // I'm going to go through every single language
+      // search the user db for userse iwth native language ==== learnLang
+      // map them all to nativeSpeakers, return native speakers
+      var nativeSpeakers = [];
+      User.find({nativeLang: currentUser.learnLang}, function nativeSpeakers(err, newFriends){
+        console.log('We found ' + newFriends.length + ' native speakers');
 
+        res.json(newFriends)
+      })
+    });
+});
 //logout
 app.get('/logout', function(req, res) {
     // remove the session user id

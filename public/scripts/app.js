@@ -1,6 +1,7 @@
 console.log("Sanity Check: JS is working!");
 
 $(document).ready(function(){
+
     // check to make sure JS is loaded
   console.log('JS is connected to HTML, and DOM is ready!');
 
@@ -22,45 +23,43 @@ $(document).ready(function(){
 $('#signup-form').on('submit', function(e) {
     console.log("form clicked!")
     console.log($('#cityDropdown option:selected').text());
+    var gifUrl;
+    var userAnimal;
     e.preventDefault();
-    var signupData = $("#signup-form").serialize();
-      //console.log(signupData);
-      // send POST request to /users with the form data
-      $.post('/users', signupData, function(response){
-        console.log(response);
-      });
-})
+    // Getting data form giphy api
+    $.ajax({
+      url: "http://api.giphy.com/v1/gifs/search?q=" + $('#favoriteAnimal').val() +  "&api_key=dc6zaTOxFJmzC",
+      type: "GET",
+      success: successGif,
+      error: errorGif
+    });
 
+    function successGif(gifResponse) {
+      userAnimal = $('#favoriteAnimal').val();
+      gifUrl = gifResponse.data[0].images.fixed_height.url;
+      $('#profileUrl').val(gifUrl);
+      $('#name').val(userAnimal);
+      var signupData = $("#signup-form").serialize();
 
       $.ajax({
-        method: 'GET',
-        url: '/api/users',
-        type: 'json',
-        success: getUserSuccess,
-        error: getUserError
+        url: "/users",
+        type: "POST",
+        data: signupData,
+        success: successSignup,
+        error: errorSignup
       });
+    };
 
-
-    //
-    // $('#userSignUpCityAnimal').on('submit', function(e) {
-    //   e.preventDefault();
-    //   console.log('new user current city, passwords serialized', $(this).serialize());
-    //   $.ajax({
-    //     method: 'POST',
-    //     url: '/api/users',
-    //     data: $(this).serialize(),
-    //     success: newUserSuccess,
-    //     error: newUserError
-    //   });
-    // });
-
-    function getUserSuccess(json) {
-        allUsers = json;
-        renderUser();
+    function errorGif(a,b,c) {
+      console.log("error getting giffy")
     }
 
-    function getUserError(a,b,c) {
-      console.log("can't get user!")
+    function successSignup(response) {
+        console.log(response)
+    }
+
+    function errorSignup(a,b,c) {
+        console.log("error signup!")
     }
 
 
@@ -85,15 +84,40 @@ $('#signup-form').on('submit', function(e) {
 
 
 
+}); //end of signup
+    var userId = $('.welcome').data('id');
+    console.log(userId);
+    $.ajax({
+      method: 'GET',
+      url: '/api/languages/' + userId,
+      type: 'json',
+      success: getUserSuccess,
+      error: getUserError
+    });
 
 
 
+    $('#findMatch').on('click', function() {
+      console.log("find match button clicked!");
 
+    });
+
+    function getUserSuccess(json) {
+        allUsers = json;
+        for (var i=0; i<allUsers.length; i++) {
+        console.log(allUsers[i].nativeLang)
+      }
+      renderUser();
+    }
+
+    function getUserError(a,b,c) {
+      console.log("can't get user!")
+    }
 
     function renderUser() {
       var source = $('#users-template').html();
       var template = Handlebars.compile(source);
-      console.log(allUsers)
+      //console.log(allUsers)
       var usersHtml = template({ users: allUsers });
       $('#foundUsers').prepend(usersHtml);
     };
@@ -102,4 +126,20 @@ $('#signup-form').on('submit', function(e) {
 
 
 
+
+
 }) // end ready
+
+
+//
+// $('#userSignUpCityAnimal').on('submit', function(e) {
+//   e.preventDefault();
+//   console.log('new user current city, passwords serialized', $(this).serialize());
+//   $.ajax({
+//     method: 'POST',
+//     url: '/api/users',
+//     data: $(this).serialize(),
+//     success: newUserSuccess,
+//     error: newUserError
+//   });
+// });
