@@ -24,24 +24,24 @@ UserSchema.statics.createSecure = function (email, password, name, nativeLang, l
 var UserModel = this;
 
 // hash password user enters at sign up
-bcrypt.genSalt(function (err, salt) {
-  console.log('salt: ', salt);  // changes every time
-  bcrypt.hash(password, salt, function (err, hash) {
+  bcrypt.genSalt(function (err, salt) {
+    console.log('salt: ', salt);  // changes every time
+    bcrypt.hash(password, salt, function (err, hash) {
 
-    // create the new user (save to db) with hashed password
-    UserModel.create({
-      email: email,
-      passwordDigest: hash,
-      name: name,
-      nativeLang: nativeLang,
-      learnLang : learnLang,
-      currentCity: currentCity,
-      favoriteAnimal: favoriteAnimal,
-      profileUrl: profileUrl,
-      friends: friends
-    }, callback);
+      // create the new user (save to db) with hashed password
+      UserModel.create({
+        email: email,
+        passwordDigest: hash,
+        name: name,
+        nativeLang: nativeLang,
+        learnLang : learnLang,
+        currentCity: currentCity,
+        favoriteAnimal: favoriteAnimal,
+        profileUrl: profileUrl,
+        friends: friends
+      }, callback);
+    });
   });
-});
 }; //end of createSecure
 
 // compare password user enters with hashed password (`passwordDigest`)

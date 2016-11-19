@@ -113,11 +113,12 @@ app.get('/api/languages/:id', function(req, res) {
     }, function(err, currentUser) {
       if(err){return console.log("ERR: " , err);}
       // I'm going to go through every single language
-      // search the user db for userse iwth native language ==== learnLang
+      // search the user db for users with native language ==== learnLang
       // map them all to nativeSpeakers, return native speakers
       var nativeSpeakers = [];
       User.find({nativeLang: currentUser.learnLang}, function nativeSpeakers(err, newFriends){
         console.log('We found ' + newFriends.length + ' native speakers');
+        // var foundMessage = 'We found ' + newFriends.length + ' native speakers';
 
         res.json(newFriends)
       })

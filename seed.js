@@ -107,8 +107,8 @@ var user_lists = [
     nativeLang: "english",
     learnLang: "spanish",
     currnetCity: "San Francisco",
-    favoriteAnimal: "lion",
-    profileUrl: "https://media.giphy.com/media/l2R03UYSQTeRzucKc/giphy.gif"
+    favoriteAnimal: "tiger",
+    profileUrl: "https://media1.giphy.com/media/28HLxPR2vopAQ/200w.gif#56"
 
   },
   {

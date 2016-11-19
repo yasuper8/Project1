@@ -63,24 +63,24 @@ $('#signup-form').on('submit', function(e) {
     }
 
 
-    // Getting data form giphy api
-
-    $('.#userSignUpForm').click(function(e) {
-      e.preventDefault()
-      console.log("click noticed")
-
-      $.ajax({
-        url: "http://api.giphy.com/v1/gifs/search?q=" + $('#favoriteAnimal').val() +  "&api_key=dc6zaTOxFJmzC",
-        type: "GET",
-        success: successGif,
-        error: errorGif
-      });
-    });
-
-
-    function successGif(gifResponse) {
-      console.log(gifResponse.data[0].bitly_url);
-    }
+    // // Getting data form giphy api
+    //
+    // $('.#userSignUpForm').click(function(e) {
+    //   e.preventDefault()
+    //   console.log("click noticed")
+    //
+    //   $.ajax({
+    //     url: "http://api.giphy.com/v1/gifs/search?q=" + $('#favoriteAnimal').val() +  "&api_key=dc6zaTOxFJmzC",
+    //     type: "GET",
+    //     success: successGif,
+    //     error: errorGif
+    //   });
+    // });
+    //
+    //
+    // function successGif(gifResponse) {
+    //   console.log(gifResponse.data[0].bitly_url);
+    // }
 
 
 
