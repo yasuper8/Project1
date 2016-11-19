@@ -206,8 +206,8 @@ var user_lists = [
     nativeLang: ["japanese"],
     learnLang : ["english"],
     currnetCity: "San Francisco",
-    favoriteAnimal: "dog",
-    profileUrl: ""
+    favoriteAnimal: "duck",
+    profileUrl: "https://media.giphy.com/media/gMlBLPI3zCsXC/giphy.gif"
 
   },
   {
