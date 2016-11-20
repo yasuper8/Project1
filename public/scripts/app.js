@@ -6,19 +6,6 @@ $(document).ready(function(){
   console.log('JS is connected to HTML, and DOM is ready!');
 
 
-  // $('#userSignUpForm').on('submit', function(e) {
-  //     e.preventDefault();
-  //     console.log('new user name, passwords serialized', $(this).serialize());
-  //     $.ajax({
-  //       method: 'POST',
-  //       url: '/api/users',
-  //       data: $(this).serialize(),
-  //       success: newUserSuccess,
-  //       error: newUserError
-  //     });
-  //   });
-
-
 //signup button clicked
 $('#signup-form').on('submit', function(e) {
     console.log("form clicked!")
@@ -56,6 +43,7 @@ $('#signup-form').on('submit', function(e) {
 
     function successSignup(response) {
         console.log(response)
+
     }
 
     function errorSignup(a,b,c) {
@@ -63,6 +51,7 @@ $('#signup-form').on('submit', function(e) {
     }
 
 }); //end of signup
+
     var userId = $('.welcome').data('id');
     console.log(userId);
     $.ajax({
@@ -74,10 +63,10 @@ $('#signup-form').on('submit', function(e) {
     });
 
 
-    $('#findMatch').on('click', function() {
-      console.log("find match button clicked!");
-
-    });
+    // $('#findMatch').on('click', function() {
+    //   console.log("find match button clicked!");
+    //
+    // });
 
     function getUserSuccess(json) {
         allUsers = json;

@@ -9,7 +9,6 @@ var UserSchema = new Schema({
   name: String,
   nativeLang: String,
   learnLang : String,
-  currentCity: String,
   favoriteAnimal: String,
   profileUrl: String,
   friends: [{type: Schema.Types.ObjectId, ref: 'User'}]
@@ -17,7 +16,7 @@ var UserSchema = new Schema({
 
 
 // create a new user with secure (hashed) password
-UserSchema.statics.createSecure = function (email, password, name, nativeLang, learnLang, currentCity, favoriteAnimal, profileUrl, friends, callback) {
+UserSchema.statics.createSecure = function (email, password, name, nativeLang, learnLang, favoriteAnimal, profileUrl, friends, callback) {
 // `this` references our user model, since this function will be called from the model itself
 // store it in variable `UserModel` because `this` changes context in nested callbacks
 
@@ -35,7 +34,6 @@ bcrypt.genSalt(function (err, salt) {
       name: name,
       nativeLang: nativeLang,
       learnLang : learnLang,
-      currentCity: currentCity,
       favoriteAnimal: favoriteAnimal,
       profileUrl: profileUrl,
       friends: friends

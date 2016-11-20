@@ -57,7 +57,7 @@ app.post('/signup', function(req, res) {
 // Sign up route - creates a new user with a secure password
 app.post('/users', function(req, res) {
     // use the email and password to authenticate here
-    db.User.createSecure(req.body.email, req.body.password, req.body.name, req.body.nativeLang, req.body.learnLang, req.body.current, req.body.favoriteAnimal, req.body.profileUrl, req.body.friends, function(err, user) {
+    db.User.createSecure(req.body.email, req.body.password, req.body.name, req.body.nativeLang, req.body.learnLang, req.body.favoriteAnimal, req.body.profileUrl, req.body.friends, function(err, user) {
         res.json(user);
     });
 });
