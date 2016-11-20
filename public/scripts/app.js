@@ -48,6 +48,8 @@ $('#signup-form').on('submit', function(e) {
         success: successSignup,
         error: errorSignup
       });
+      $('#signUpModal').modal('toggle');
+      $('#signUp-succ').show();
     };
 
     function errorGif(a,b,c) {
@@ -62,6 +64,9 @@ $('#signup-form').on('submit', function(e) {
         console.log("error signup!")
     }
 
+    $(function () {
+       $('#modal').modal('toggle');
+    });
 
     // // Getting data form giphy api
     //
