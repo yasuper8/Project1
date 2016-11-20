@@ -17,26 +17,55 @@
     <!-- application scripts -->
     <script src="scripts/app.js"></script>
 
+    <!-- application css -->
+    <link type="text/css" rel="stylesheet" href="styles/app.css">
+
     <title>AppName</title>
 </head>
 
 <body>
 
-    <div class="container text-center">
+  <!-- begin welcome message -->
+
+    <div class="bg-light lter b-b wrapper-md">
         <div class="row">
-            <div class="col-md-6 col-md-offset-3">
-                <h1>Profile</h1>
-                <hr>
-                <h2 class="welcome" data-id="<%=user._id%>">Welcome! You're logged in as <%= user.email %></h2>
+            <div class="col-sm-6 col-xs-12">
+                <h1 class="m-n font-thin h3 text-black">AppName</h1>
+                <small class="welcome text-muted" data-id="<%=user._id%>">Welcome! You're logged in as <%= user.email %></small>
+            </div>
+            <div class="col-sm-6 text-right hidden-xs">
                 <a id="logout" href="/logout" class="btn btn-default">Log Out</a>
             </div>
         </div>
     </div>
 
-    <div class="wrapper-md">
-        <div class="panel-heading">
-            Potential Language Exchange Partners Found
+    <!-- end welcome message -->
+
+    <!-- beginning current user profile -->
+    <div class="col w-md bg-white-only b-l bg-auto no-border-xs currentUser" data-id="<%=user._id%>">
+        <div class="wrapper-md">
+            <div class="m-b-sm text-md">My Profile</div>
+            <ul class="list-group no-bg no-borders pull-in">
+                <li class="list-group-item">
+                    <a herf class="pull-left thumb-sm avatar m-r">
+                        <img src="<%= user.profileUrl %>" alt="currentUser image">
+                        <i class="on b-white bottom"></i>
+                    </a>
+                    <div class="clear">
+                        <div>Anonymous <%= user.name %></div>
+                        <small class='native-lang text-muted'>Speaks <%= user.nativeLang %></small>
+                        <small class='learning-lang text-muted'>Learning <%= user.learnLang %> </small>
+                    </div>
+                </li>
+              </ul>
         </div>
+    </div>
+    <!--end of current user profile-->
+
+    <!-- main -->
+    <div class="col">
+    <div class="bg-light lter b-b wrapper-md">
+        <div class="m-b-sm text-md">Potential Language Exchange Partners Found</div>
         <div class="table-responsive">
             <div id='foundUsers'>
 
@@ -44,62 +73,41 @@
                 <div class="row user">
                     <div class="panel panel-default">
                         <!-- begin one user row -->
+                        <script id="users-template" type="text/x-handlebars-template">
+                            {{#each users}}
 
-                        <div class="col-md-9 col-xs-12">
-                            <script id="users-template" type="text/x-handlebars-template">
-                                {{#each users}}
-                                <div class="list-group">
-                                    <div class='row'>
-                                        <div class="col-md-3 col-xs-12 thumbnail album-art">
-                                            <img src={{profileUrl}} alt="user image">
-                                        </div>
+                            <div class="col">
+                                <div class="list-group list-group-lg list-group-sp">
 
-                                        <div class="col-md-9 col-xs-12">
-                                            <ul class="list-group">
-                                                <li class="list-group-item">
-                                                    <h4 class='inline-header'>Name:</h4>
-                                                    <span class='name'>Anonymous {{name}}</span>
-                                                </li>
 
-                                                <li class="list-group-item">
-                                                    <h4 class='inline-header'>email:</h4>
-                                                    <span class='email'>{{email}}</span>
-                                                </li>
+                                    <a herf class="list-group-item clearfix">
+                                        <span class="pull-left thumb-sm avatar m-r">
+                <img src="{{profileUrl}}" alt="user image">
+                <i class="on b-white right"></i>
+              </span>
+                                        <span class="clear">
+                <span class='name'>Anonymous {{name}}</span>
+                                        <small class="text-muted clear text-ellipsis">Speakes {{nativeLang}}</small>
+                                        <small class="text-muted clear text-ellipsis">Learning {{learnLang}}</small>
+                                        <!-- <span class="text-muted clear text-ellipsis" a href="mailto:{{email}}">email Me!</a></span> -->
+                                        <span class="pull-right label bg-info inline m-t-sm" a href="mailto:{{email}}">Email Me!</a></span>
+                                        </span>
+                                    </a>
+                                    {{/each}}
+                        </script>
 
-                                                <li class="list-group-item">
-                                                    <h4 class='inline-header'>Native language:</h4>
-                                                    <span class='native-lang'>{{nativeLang}}</span>
-                                                </li>
-
-                                                <li class="list-group-item">
-                                                    <h4 class='inline-header'>Learning Languages:</h4>
-                                                    <span class='learning-lang'>{{learnLang}} </span>
-                                                </li>
-
-                                                <li class="list-group-item">
-                                                    <h4 class="inline-header">Friends:</h4>
-                                                    <span class='friends'>{{friends}}</span>
-                                                </li>
-
-                                            </ul>
-                                            <div class="col-md-3 col-xs-12">
-                                                <a href="mailto:{{email}}">Email Me!</a></p>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                                {{/each}}
-                            </script>
-                        </div>
                         <!-- end of user row -->
+                        </div>
+                        </div>
                     </div>
+                    <!-- end one user -->
                 </div>
             </div>
-
-            <!-- end one user -->
         </div>
     </div>
+</div>
+
+
 </body>
 
 </html>
