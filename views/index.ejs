@@ -53,19 +53,6 @@
     </nav>
 
 
-    <!-- <div class="container text-center">
-        <div class="row">
-            <div class="col-md-6 col-md-offset-3">
-                <h1>Profile</h1>
-                <hr>
-                <h2 class="welcome" data-id="<%=user._id%>">Welcome! You're logged in as <%= user.favoriteAnimal %></h2>
-                <a id="logout" href="/logout" class="btn btn-default">Log Out</a>
-                <a id="findMatch" class="btn btn-default">Find Me Native Speakers</a>
-            </div>
-        </div>
-    </div> -->
-
-
     <!-- Large modal -->
 
 
@@ -78,7 +65,7 @@
               <div class="col-md-6">
                 <h1>Update info</h1>
                 <hr>
-                <form id="signup-form">
+                <form id="update-form">
                   <!-- <div class="form-group">
                     <input type="text" name="email" class="form-control" placeholder="Email" autofocus required>
                   </div>
@@ -140,12 +127,8 @@
             <h1><strong>Welcome!</strong></h1>
             <h2 class="welcome" data-id="<%=user._id%>">You're logged in as <strong><%= user.favoriteAnimal %></strong></h2>
             <br>
-            <strong>Potential Language Exchange Partners Found!</strong>
+
         </div>
-        <br>
-
-
-
 
         <div class="container">
           <div class="row">
@@ -174,7 +157,7 @@
                                 language to Practice : <strong><%= user.learnLang %></strong>
                                 <br />
                                 Friends : <strong><%= user.friends %></strong></p>
-                              <button data-toggle="modal" data-target=".update-modal" href="">Update my info</button>
+                              <button class="btn btn-primary" data-toggle="modal" data-target=".update-modal" href="">Update my info</button>
                         </div>
                     </div>
                 </div>
@@ -182,6 +165,11 @@
           </div>
         </div>
 
+        <br>
+        <div class="text-center">
+          <h1><strong>Potential Language Exchange Partners Found!</strong></h1>
+        </div>
+        <br>
         <!-- beginning current user profile -->
            <!-- <div class="col w-md bg-white-only b-l bg-auto no-border-xs currentUser" data-id="<%=user._id%>">
                <div class="wrapper-md">

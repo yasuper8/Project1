@@ -19,6 +19,13 @@ $(document).ready(function(){
   //   });
 
 
+  //Creating romdom integer for getting random image form giphy
+  function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min)) + min;
+  }
+
 //signup button clicked
 $('#signup-form').on('submit', function(e) {
     console.log("form clicked!")
@@ -36,7 +43,8 @@ $('#signup-form').on('submit', function(e) {
 
     function successGif(gifResponse) {
       userAnimal = $('#favoriteAnimal').val();
-      gifUrl = gifResponse.data[0].images.fixed_height.url;
+      var i = getRandomInt(1, 10);
+      gifUrl = gifResponse.data[i].images.fixed_height.url;
       $('#profileUrl').val(gifUrl);
       $('#name').val(userAnimal);
       var signupData = $("#signup-form").serialize();
@@ -85,9 +93,62 @@ $('#signup-form').on('submit', function(e) {
     //   console.log(gifResponse.data[0].bitly_url);
     // }
 
-
-
 }); //end of signup
+
+
+
+
+//update current user info
+$('#update-form').on('submit', function(e) {
+    console.log("Update form clicked!")
+    var gifUrl;
+    var userAnimal;
+    e.preventDefault();
+    // Getting data form giphy api
+    $.ajax({
+      url: "http://api.giphy.com/v1/gifs/search?q=" + $('#favoriteAnimal').val() +  "&api_key=dc6zaTOxFJmzC",
+      type: "GET",
+      success: successGifUpdate,
+      error: errorGif
+    });
+
+    function successGifUpdate(gifResponse) {
+      userAnimal = $('#favoriteAnimal').val();
+      var i = getRandomInt(1, 10);
+      gifUrl = gifResponse.data[i].images.fixed_height.url;
+      $('#profileUrl').val(gifUrl);
+      $('#name').val(userAnimal);
+      var updatedData = $("#update-form").serialize();
+
+      $.ajax({
+        url: "/users",
+        type: "POST",
+        data: updatedData,
+        success: successUpdate,
+        error: errorUpdate
+      });
+      $('#updateModal').modal('toggle');
+    };
+
+    function errorGif(a,b,c) {
+      console.log("error getting giffy")
+    }
+
+    function successUpdate(response) {
+        console.log(response)
+    }
+
+    function errorUpdate(a,b,c) {
+        console.log("error signup!")
+        $('#signUp-error').show();
+    }
+
+
+}); //end of update
+
+
+
+
     var userId = $('.welcome').data('id');
     console.log(userId);
     $.ajax({
