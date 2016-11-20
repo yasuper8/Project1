@@ -62,11 +62,9 @@ $('#signup-form').on('submit', function(e) {
 
     function errorSignup(a,b,c) {
         console.log("error signup!")
+        $('#signUp-error').show();
     }
 
-    $(function () {
-       $('#modal').modal('toggle');
-    });
 
     // // Getting data form giphy api
     //

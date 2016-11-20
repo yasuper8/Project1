@@ -37,7 +37,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">Brand</a>
+        <a class="navbar-brand" href="/signup">Brand</a>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
@@ -48,7 +48,8 @@
         </ul>
 
         <ul class="nav navbar-nav navbar-right">
-          <li class="active"><a href="/login">Log in</a></li>
+          <li class="active" ><a data-toggle="modal" data-target=".sign-up-modal" href="">Sign me up!</a></li>
+          <li ><a href="/login">Log in</a></li>
         </ul>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
@@ -58,12 +59,13 @@
 
 
   <div class="col-md-12 hover-slide text-center">
-    <button class="btn btn-info btn-lg" data-toggle="modal" data-target=".sign-up-modal">Sign me up!</button>
+    <!-- <button class="btn btn-info btn-lg" data-toggle="modal" data-target=".sign-up-modal">Sign me up!</button> -->
   </div>
   <div id="signUp-succ" class="alert alert-success collapse" role="alert">
     <a href="#" data-dismiss="alert" class="colse">&times;</a>
     <strong>Well done!</strong> You successfully signed up. Please go to log in.
   </div>
+
 
   <!-- carousel starts here -->
   <div class="carousel main-carousel carousel-default">
@@ -187,6 +189,10 @@
                   <input type="submit" value="Sign Up" class="btn btn-primary">
                 </div>
                 <a href="/login">Login</a>
+                <!-- <div id="signUp-error" class="alert alert-warning collapse" role="alert">
+                  <a href="#" data-dismiss="alert" class="colse">&times;</a>
+                  <strong>uh oh!</strong> Something went wrong...Please check the information your form again.
+                </div> -->
               </form>
             </div>
           </div>

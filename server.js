@@ -62,6 +62,7 @@ app.post('/users', function(req, res) {
     });
 });
 
+
 /*
  * HTML Endpoints
  */
@@ -104,6 +105,26 @@ app.get('/profile', function(req, res) {
 
     });
 });
+
+
+// //update user profile info
+// app.put('/profile/:id', function(req, res) {
+//   // var id = req.params.id;
+//   var nativeLang = req.body.nativeLang;
+//   var learnLang = req.body.learnLang;
+//   var favoriteAnimal = req.body.favoriteAnimal;
+//
+//   User.findOne({
+//       _id: req.session.userId
+//   }, function(err, currentUser) {
+//       res.render('index.ejs', {
+//           user: currentUser
+//       })
+//
+//   });
+// })
+//
+
 
 // show user profile page
 app.get('/api/languages/:id', function(req, res) {
