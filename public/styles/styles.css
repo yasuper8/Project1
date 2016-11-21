@@ -1,0 +1,40 @@
+body {
+  background-color: #FAF3DD;
+}
+.jumbotron {
+  background-image: url(/images/background1.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #EEE;
+}
+.jumbotron .container {
+  height: 350px;
+}
+.inline-header {
+  display: inline-block;
+  vertical-align: baseline;
+  margin-right: 12px;
+}
+.navbar-default {
+  background-color: #AED9E0;
+  border-color: #E7E7E7;
+}
+.main-caruosel {
+  position: relative;
+}
+.hover-slide {
+  position: absolute;
+  z-index: 10;
+  margin-top: 10%;
+}
+#formSignUp {
+  max-width: 80%
+}
+.logo {
+  width: 3em;
+}
+@media (min-width: 768px) {
+  .currentUserProfile {
+    margin-left: 23%;
+  }
+}
