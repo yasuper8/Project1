@@ -102,9 +102,9 @@ app.get('/', function homepage(req, res) {
     res.sendFile(__dirname + '/views/signup.ejs');
 });
 
-app.get('/signup', function(req, res) {
-    res.render('signup');
-});
+// app.get('/signup', function(req, res) {
+//     res.render('signup');
+// });
 
 // Login route with placeholder response
 app.get('/login', function(req, res) {
