@@ -165,6 +165,8 @@ app.get('/api', controllers.api.index);
 
 app.get('/api/users', controllers.users.index);
 
+app.delete('/api/users/:id', controllers.users.destroy);
+
 app.get('/api/users/:id', controllers.users.displayUser);
 
 app.post('/api/users', controllers.users.create);

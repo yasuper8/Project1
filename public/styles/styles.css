@@ -30,6 +30,9 @@ body {
 #formSignUp {
   max-width: 80%
 }
+.logo {
+  width: 3em;
+}
 @media (min-width: 768px) {
   .currentUserProfile {
     margin-left: 23%;

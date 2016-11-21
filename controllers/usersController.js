@@ -34,14 +34,19 @@ function create(req, res) {
   });
 }
 
-
-// destroy: destroy,
-// update: update
+// Delete a current user
+  function destroy(req, res) {
+  db.Photo.findOneAndRemove({_id: req.params.id}, function(err, user) {
+    console.log('sever error ', err)
+    res.json(user);
+  });
+}
 
 
 // export public methods here
 module.exports = {
   index: index,
   displayUser: displayUser,
-  create: create
+  create: create,
+  destroy: destroy
 };

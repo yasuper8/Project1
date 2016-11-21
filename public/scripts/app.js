@@ -113,10 +113,6 @@ $(document).ready(function(){
   // }); //end of update
 
 
-
-
-
-
   //Update current user info
   $('.update-currentUser').on('submit', function(e) {
     e.preventDefault();
@@ -134,27 +130,6 @@ $(document).ready(function(){
       ereor: errorUpdate
     });
 
-
-    // gifUrl = gifResponse.data[i].images.fixed_height.url;
-    // $('#profileUrl').val(gifUrl);
-    //
-    // function successGifUpdate(gifResponse) {
-    //   userAnimal = $('#favoriteAnimal').val();
-    //   var i = getRandomInt(1, 10);
-    //   gifUrl = gifResponse.data[i].images.fixed_height.url;
-    //   $('#profileUrl').val(gifUrl);
-    //   $('#name').val(userAnimal);
-    //   var updatedUser = $("#update-form").serialize();
-    //
-    //
-    //
-    //   $('#updateModal').modal('toggle');
-    // };
-
-    // function errorGif(a,b,c) {
-    //   console.log("error getting giffy")
-    // }
-
     function successUpdate(response) {
         console.log("response from update", response)
         $('.reset').val('');
@@ -167,10 +142,6 @@ $(document).ready(function(){
     }
 
   }); //end of update
-
-
-
-
 
 
 
@@ -232,9 +203,62 @@ $(document).ready(function(){
   // }); //end of update
 
 
+  // Delete a cunnrent user
+
+  // $('#deleteUser').on('click', function(event) {
+  //   event.preventDefault();
+  //   var userId = $(this).closest('#deleteUser').attr('data-id');
+  //   console.log(userId);
+  //   $.ajax({
+  //     method: 'DELETE',
+  //     url: "api/users/" + $(this).attr('data-id'),
+  //     success: handleDeleteAUser,
+  //     error: handleDeleteAUser
+  //   });
+  //
+  // });
+  //
+  // function handleDeleteAUser(json) {
+  //   var deleteThisUser = json;
+  //   var userId = $(this).closest('#deleteUser').attr('data-id');
+  //
+  //   for (var i = 0; i < users.length; i++) {
+  //     if (user[i]._id === userId) {
+  //       users.splice(i, 1);
+  //       renderUser();
+  //       break;  // No reason to keep searching after find a photo (this is why didn't use forEach)
+  //     }
+  //   }
+  // }
+  //
+  // function handleDeleteUser(e) {
+  //   console.log('uh oh');
+  //   $('#results').text('Failed to delete a user, is the server working?');
+  // }
 
 
-  //Shows all users
+
+
+  // // GET all todos on page load
+  // $.ajax({
+  //   method: "GET",
+  //   url: baseUrl,
+  //   success: function onIndexSuccess(json) {
+  //     console.log(json);
+  //
+  //     // set `allTodos` to todo data (json.data) from API
+  //     allTodos = json.todos;
+  //
+  //     // render all todos to view
+  //     render();
+  //   }
+  // });
+
+
+
+
+
+  //Shows all users who matched with users leran language
   var userId = $('.welcome').data('id');
   console.log(userId);
   $.ajax({
