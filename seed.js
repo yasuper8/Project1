@@ -107,8 +107,8 @@ var user_lists = [
     nativeLang: "english",
     learnLang: "spanish",
     currnetCity: "San Francisco",
-    favoriteAnimal: "lion",
-    profileUrl: "https://media.giphy.com/media/l2R03UYSQTeRzucKc/giphy.gif"
+    favoriteAnimal: "tiger",
+    profileUrl: "https://media1.giphy.com/media/28HLxPR2vopAQ/200w.gif#56"
 
   },
   {
@@ -201,36 +201,45 @@ var user_lists = [
   },
   {
     name: "Yasuyoshi Sakamoto",
-    email: "yasuper8@gmail.com@ga.com",
+    email: "yasu@ga.com",
     password: "",
     nativeLang: "japanese",
     learnLang : "english",
     currnetCity: "San Francisco",
-    favoriteAnimal: "dog",
-    profileUrl: ""
+    favoriteAnimal: "duck",
+    profileUrl: "https://media.giphy.com/media/gMlBLPI3zCsXC/giphy.gif"
 
   },
   {
     name: "Justin Castilla",
     email: "Justin@ga.com",
     password: "",
-    nativeLang: "english",
+    nativeLang: "java",
     learnLang: "spnish",
     currnetCity: "San Francisco",
     favoriteAnimal: "puppy",
-    profileUrl: "https://media4.giphy.com/media/9u5SmANtz7zIQ/200w.gif#5"
+    profileUrl: "https://media.giphy.com/media/3o7abAHdYvZdBNnGZq/giphy.gif"
 
   },
   {
-    name: "Jean W",
+    name: "Jean Weatherwax",
     email: "Jean@ga.com",
     password: "",
-    nativeLang: "english",
+    nativeLang: "java",
     learnLang: "japanese",
     currnetCity: "San Francisco",
     favoriteAnimal: "dolphin",
     profileUrl: "https://media0.giphy.com/media/l41m6YZzaqxZQp4IM/200.gif#35"
-
+  },
+  {
+  name: "Andrew",
+  email: "Andrew@ga.com",
+  password: "",
+  nativeLang: "english",
+  learnLang: "chinese",
+  currnetCity: "San Francisco",
+  favoriteAnimal: "wolf",
+  profileUrl: "https://media.giphy.com/media/10arlAx4rI0xHO/giphy.gif"
   }
 ];
 

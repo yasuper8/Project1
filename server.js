@@ -62,15 +62,6 @@ app.post('/users', function(req, res) {
     });
 });
 
-//update user info
-// app.put('/users/:id/edit', function (req,res) {
-//   User.findById(req.id, function (err, user) {
-//     if (err) console.log("hello world")
-//     user.update({
-//       learnLang: learnLang
-//     })
-//   })
-// })
 
 
 // update todo
@@ -96,6 +87,8 @@ app.put('/api/languages/:id', function (req, res) {
     }
   });
 });
+
+
 /*
  * HTML Endpoints
  */
@@ -139,6 +132,35 @@ app.get('/profile', function(req, res) {
     });
 });
 
+
+//update user profile info
+app.put('/api/users/:id', function(req, res) {
+  // var id = req.params.id;
+  // var nativeLang = req.body.nativeLang;
+  var learnLang = req.body.learnLang;
+  // var favoriteAnimal = req.body.favoriteAnimal;
+  console.log("this is from update req body",learnLang)
+  // User.findOne({
+  //     _id: req.session.userId
+  // }, function(err, currentUser) {
+  //     res.render('index.ejs', {
+  //         user: currentUser
+  //     })
+  //
+  // });
+  User.findById(id, function (err, user) {
+  if (err) return handleError(err);
+
+  user.learnLang = learnLang;
+  user.save(function (err, updatedUser) {
+    if (err) return handleError(err);
+    res.send(updatedUser);
+  });
+});
+})
+
+
+
 // show user profile page
 app.get('/api/languages/:id', function(req, res) {
     // find the user currently logged in
@@ -147,11 +169,12 @@ app.get('/api/languages/:id', function(req, res) {
     }, function(err, currentUser) {
       if(err){return console.log("ERR: " , err);}
       // I'm going to go through every single language
-      // search the user db for userse iwth native language ==== learnLang
+      // search the user db for users with native language ==== learnLang
       // map them all to nativeSpeakers, return native speakers
       var nativeSpeakers = [];
       User.find({nativeLang: currentUser.learnLang}, function nativeSpeakers(err, newFriends){
         console.log('We found ' + newFriends.length + ' native speakers');
+        // var foundMessage = 'We found ' + newFriends.length + ' native speakers';
 
         res.json(newFriends)
       })
