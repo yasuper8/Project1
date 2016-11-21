@@ -107,23 +107,32 @@ app.get('/profile', function(req, res) {
 });
 
 
-// //update user profile info
-// app.put('/profile/:id', function(req, res) {
-//   // var id = req.params.id;
-//   var nativeLang = req.body.nativeLang;
-//   var learnLang = req.body.learnLang;
-//   var favoriteAnimal = req.body.favoriteAnimal;
-//
-//   User.findOne({
-//       _id: req.session.userId
-//   }, function(err, currentUser) {
-//       res.render('index.ejs', {
-//           user: currentUser
-//       })
-//
-//   });
-// })
-//
+//update user profile info
+app.put('/api/users/:id', function(req, res) {
+  // var id = req.params.id;
+  // var nativeLang = req.body.nativeLang;
+  var learnLang = req.body.learnLang;
+  // var favoriteAnimal = req.body.favoriteAnimal;
+  console.log("this is from update req body",learnLang)
+  // User.findOne({
+  //     _id: req.session.userId
+  // }, function(err, currentUser) {
+  //     res.render('index.ejs', {
+  //         user: currentUser
+  //     })
+  //
+  // });
+  User.findById(id, function (err, user) {
+  if (err) return handleError(err);
+
+  user.learnLang = learnLang;
+  user.save(function (err, updatedUser) {
+    if (err) return handleError(err);
+    res.send(updatedUser);
+  });
+});
+})
+
 
 
 // show user profile page

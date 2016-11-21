@@ -98,54 +98,92 @@ $('#signup-form').on('submit', function(e) {
 
 
 
+// //update current user info
+// $('#update-form').on('submit', function(e) {
+//     console.log("Update form clicked!")
+//     var gifUrl;
+//     var userAnimal;
+//     e.preventDefault();
+//     // Getting data form giphy api
+//     $.ajax({
+//       url: "http://api.giphy.com/v1/gifs/search?q=" + $('#favoriteAnimal').val() +  "&api_key=dc6zaTOxFJmzC",
+//       type: "GET",
+//       success: successGifUpdate,
+//       error: errorGif
+//     });
+//
+//     // find the user's id (stored in HTML as `data-id`)
+//     var userId = $(this).closest('.update').attr('data-id');
+//     console.log("user id is", userId);
+//
+//     function successGifUpdate(gifResponse) {
+//       userAnimal = $('#favoriteAnimal').val();
+//       var i = getRandomInt(1, 10);
+//       gifUrl = gifResponse.data[i].images.fixed_height.url;
+//       $('#profileUrl').val(gifUrl);
+//       $('#name').val(userAnimal);
+//       var updatedData = $("#update-form").serialize();
+//
+//       $.ajax({
+//         url: "/api/users/" + userId,
+//         type: "PUT",
+//         data: updatedData,
+//         success: successUpdate,
+//         error: errorUpdate
+//       });
+//       $('#updateModal').modal('toggle');
+//     };
+//
+//     function errorGif(a,b,c) {
+//       console.log("error getting giffy")
+//     }
+//
+//     function successUpdate(response) {
+//         console.log("response from update", response)
+//     }
+//
+//     function errorUpdate(a,b,c) {
+//         console.log("error updating!")
+//         $('#signUp-error').show();
+//     }
+//
+//
+// }); //end of update
+
 //update current user info
 $('#update-form').on('submit', function(e) {
     console.log("Update form clicked!")
-    var gifUrl;
-    var userAnimal;
     e.preventDefault();
-    // Getting data form giphy api
+
+    // find the user's id (stored in HTML as `data-id`)
+    var userId = $(this).closest('.update').attr('data-id');
+    console.log("user id is", userId);
+
+    var updatedData = $("#update-form").serialize();
+    console.log("updated info :", updatedData)
     $.ajax({
-      url: "http://api.giphy.com/v1/gifs/search?q=" + $('#favoriteAnimal').val() +  "&api_key=dc6zaTOxFJmzC",
-      type: "GET",
-      success: successGifUpdate,
-      error: errorGif
+      url: "/api/users/" + userId,
+      type: "PUT",
+      data: updatedData,
+      success: successUpdate,
+      error: errorUpdate
     });
 
-    function successGifUpdate(gifResponse) {
-      userAnimal = $('#favoriteAnimal').val();
-      var i = getRandomInt(1, 10);
-      gifUrl = gifResponse.data[i].images.fixed_height.url;
-      $('#profileUrl').val(gifUrl);
-      $('#name').val(userAnimal);
-      var updatedData = $("#update-form").serialize();
-
-      $.ajax({
-        url: "/users",
-        type: "POST",
-        data: updatedData,
-        success: successUpdate,
-        error: errorUpdate
-      });
-      $('#updateModal').modal('toggle');
-    };
-
-    function errorGif(a,b,c) {
-      console.log("error getting giffy")
-    }
 
     function successUpdate(response) {
-        console.log(response)
+        console.log("response from update", response)
+        $('#updateModal').modal('toggle');
     }
 
-    function errorUpdate(a,b,c) {
-        console.log("error signup!")
-        $('#signUp-error').show();
+    function errorUpdate(err, b, c) {
+        console.log("error a updating!", err)
+        console.log("error b updating!", b)
+        console.log("error c updating!", c)
+        // $('#signUp-error').show();
     }
 
 
-}); //end of update
-
+}); //end user update
 
 
 
