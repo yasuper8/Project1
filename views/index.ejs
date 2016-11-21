@@ -42,7 +42,7 @@
     <!-- end welcome message -->
 
     <!-- beginning current user profile -->
-    <div class="col w-md bg-white-only b-l bg-auto no-border-xs currentUser" data-id="<%=user._id%>">
+    <div class="col bg-white-only b-l bg-auto no-border-xs currentUser" data-id="<%=user._id%>">
         <div class="wrapper-md">
             <div class="m-b-sm text-md">My Profile</div>
             <ul class="list-group no-bg no-borders pull-in">
@@ -58,40 +58,35 @@
                 </li>
               </ul>
 
-
-
-
-         <div class="pull-right">
-
+<!-- update user info -->
+      <div class="pull-right">
         <a href="javascript:void(0)" data-toggle="collapse" data-target="#update-<%= user._id %>">
         <span class="glyphicon glyphicon-pencil"></span>
         </a>
           </div>
             <div class = "collapse" id="update-<%= user._id %>">
                  <br>
-                 <form class="form-inline update-todo">
+                 <form class="form-inline update-currentUser">
                    <div class="form-group">
-                     <input type="text" name="task" class="form-control" placeholder="Which languages do you want to learn?" value="{{learnLang}}">
+                     <input type="text" name="learnLang" class="form-control" placeholder="Which languages do you want to learn?">
                    </div>
                    <div class="form-group">
                      <input type="submit" class="btn btn-block btn-default" value="Update">
                    </div>
                  </form>
                </div>
-    </div>
-      </div>
-
-
+             </div>
+           </div>
+<!-- end of update user info -->
     <!--end of current user profile-->
 
     <!-- main -->
-    <div class="col">
+
     <div class="bg-light lter b-b wrapper-md">
         <div class="m-b-sm text-md">Potential Language Exchange Partners Found</div>
         <div class="table-responsive">
             <div id='foundUsers'>
                 <!-- one user -->
-                <div class="row user">
                     <div class="panel panel-default">
                         <!-- begin one user row -->
                         <script id="users-template" type="text/x-handlebars-template">
@@ -119,11 +114,11 @@
                         </div>
                     </div>
                     <!-- end one user -->
-                </div>
+
             </div>
         </div>
     </div>
-</div>
+
 
 
 </body>

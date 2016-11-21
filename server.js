@@ -62,30 +62,20 @@ app.post('/users', function(req, res) {
     });
 });
 
-//update user info
-// app.put('/users/:id/edit', function (req,res) {
-//   User.findById(req.id, function (err, user) {
-//     if (err) console.log("hello world")
-//     user.update({
-//       learnLang: learnLang
-//     })
-//   })
-// })
 
-
-// update todo
-app.put('/api/languages/:id', function (req, res) {
+// update user
+app.put('/api/users/:id', function (req, res) {
   // get user id from url params (`req.params`)
   var currentUserId = req.params.id;
   // find userId in db
-  Todo.findOne({ _id: todoId }, function (err, foundUser) {
+  db.User.findOne({ _id: currentUserId }, function (err, foundUser) {
     if (err) {
       res.status(500).json({ error: err.message });
     } else {
-      // update the todos's attributes
+      // update the users's attributes
       foundUser.learnLang = req.body.learnLang;
 
-      // save updated todo in db
+      // save updated user in db
       foundUser.save(function (err, savedUser) {
         if (err) {
           res.status(500).json({ error: err.message });

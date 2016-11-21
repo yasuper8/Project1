@@ -58,12 +58,12 @@ $('.update-currentUser').on('submit', function (e) {
 
   // find the todo's id (stored in HTML as `data-id`)
   var userId = $(this).closest('.currentUser').attr('data-id');
-  console.log(userId)
+
   // find the todo to update by its id
   var userToUpdate = allUsers.filter(function (currentUser) {
     return currentUser._id == userId;
   })[0];
-  console.log(currentUser._id);
+  // console.log(currentUser._id);
 
   // serialze form data
   var updatedUser = $(this).serialize();
@@ -72,20 +72,18 @@ $('.update-currentUser').on('submit', function (e) {
   // PUT request to update todo
   $.ajax({
     type: 'PUT',
-    url: '/api/languages' + '/' + userId,
+    url: '/api/users' + '/' + userId,
     data: updatedUser,
-    success: function(data) {
-      //  replace todo to update with newly updated version (data)
-    allUsers.splice(allUsers.indexOf(userToUpdate), 1, data);
-      // render all todos to view
-      render();
-    }
+    success: successUpdate,
+    ereor: errorUpdate
   });
-})
+
+});
 
 
+//shows all users
     var userId = $('.welcome').data('id');
-  //  console.log(userId);
+
     $.ajax({
       method: 'GET',
       url: '/api/languages/' + userId,
@@ -113,23 +111,19 @@ $('.update-currentUser').on('submit', function (e) {
     };
 
 
+    function successUpdate(data) {
+      //  replace user to update with newly updated version (data)
+      console.log("response from update", data)
+       $('#updateModal').modal('toggle');
+      // render all todos to view
+      renderUser();
+    };
+
+    function errorUpdate(a,b,c) {
+      console.log("update user error!")
+    };
 
 
 
 
-
-}) // end ready
-
-
-//
-// $('#userSignUpCityAnimal').on('submit', function(e) {
-//   e.preventDefault();
-//   console.log('new user current city, passwords serialized', $(this).serialize());
-//   $.ajax({
-//     method: 'POST',
-//     url: '/api/users',
-//     data: $(this).serialize(),
-//     success: newUserSuccess,
-//     error: newUserError
-//   });
-// });
+}); // end ready
