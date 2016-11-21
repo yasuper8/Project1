@@ -1,33 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <!-- bootstrap css -->
     <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-
-
     <!-- vendor scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
-
     <!-- custum css -->
     <link rel="stylesheet" href="styles/styles.css">
     <!-- application scripts -->
     <script src="scripts/app.js"></script>
-
-    <title>AppName</title>
+    <title>Lingo Jungle</title>
 </head>
-
 <body>
-
     <!-- Navigation bar -->
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
-
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
             <span class="sr-only">Toggle navigation</span>
@@ -35,15 +26,13 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="signup"><img class="logo" src="https://files.slack.com/files-pri/T0351JZQ0-F35B5RJJF/logo.png" alt="lingo jungle logo"></a>
+          <img src="images/logo.png" alt="logo" style="width:100px;height:63px;">
         </div>
-
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
             <li><a href="#">Link</a></li>
           </ul>
-
           <ul class="nav navbar-nav navbar-right">
             <li class=""><a data-toggle="modal" data-target=".update-modal" href="">Update your info!</a></li>
               <li class=""><a id="logout" href="/logout">Log Out</a></li>
@@ -51,13 +40,10 @@
         </div>
       </div>
     </nav>
-
-
     <!-- Large modal user update-->
     <div id="updateModal" class="modal fade update-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content  text-center">
-
           <div class="container">
             <div class="row">
               <div class="col-md-6">
@@ -85,20 +71,16 @@
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </div><!-- user pudate modal end -->
-
     <div class="wrapper-md">
         <div class="panel-heading text-center">
           <br>
           <br>
-
             <h1><strong>Welcome!</strong></h1>
             <h2 class="welcome" data-id="<%=user._id%>">You're logged in as <strong><%= user.favoriteAnimal %></strong></h2>
             <br>
-
         </div>
         <!-- beginning current user profile -->
         <div class="container">
@@ -129,7 +111,6 @@
                                 <br />
                                 Friends : <strong><%= user.friends %></strong></p>
                               <button class="btn btn-primary" data-toggle="modal" data-target=".update-modal" href="">Update my info</button>
-                              <button class="btn btn-primary" id="deleteUser" data-id="<%=user._id%>"  href="">Delete my info</button>
                         </div>
                     </div>
                 </div>
@@ -142,9 +123,7 @@
           <h1><strong>Potential Language Exchange Partners Found!</strong></h1>
         </div>
         <br>
-
         <br>
-
         <div class="table-responsive">
           <!-- found user profiles -->
             <div id='foundUsers'>
@@ -176,7 +155,6 @@
                                                   language to Practice : <strong>{{learnLang}}</strong>
                                                   <br />
                                                   Friends : <strong>{{friends}}</strong></p>
-
                                           </div>
                                       </div>
                                   </div>
@@ -190,5 +168,4 @@
         </div>
     </div>
 </body>
-
 </html>

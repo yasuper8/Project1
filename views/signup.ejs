@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,9 +17,8 @@
     <link rel="stylesheet" href="styles/styles.css">
     <!-- application scripts -->
     <script src="scripts/app.js"></script>
-    <title>AppName</title>
+    <title>Lingo Jungle</title>
 </head>
-
 <body>
   <!-- Navigation bar -->
   <nav class="navbar navbar-inverse navbar-static-top">
@@ -33,16 +31,14 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-          <a class="navbar-brand" href="signup"><img class="logo" src="https://files.slack.com/files-pri/T0351JZQ0-F35B5RJJF/logo.png" alt="lingo jungle logo"></a>
+        <img src="images/logo.png" alt="logo" style="width:100px;height:63px;">
       </div>
-
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
           <!-- <li class="active"><a href="#">Log in <span class="sr-only">(current)</span></a></li>
           <li><a href="#">Link</a></li> -->
         </ul>
-
         <ul class="nav navbar-nav navbar-right">
           <li class="active" ><a data-toggle="modal" data-target=".sign-up-modal" href="">Sign me up!</a></li>
           <li ><a href="/login">Log in</a></li>
@@ -50,7 +46,6 @@
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
-
   <!-- <div class="col-md-12 hover-slide text-center">
     <button class="btn btn-info btn-lg" data-toggle="modal" data-target=".sign-up-modal">Sign me up!</button>
   </div> -->
@@ -58,15 +53,12 @@
     <a href="#" data-dismiss="alert" class="colse">&times;</a>
     <strong>Well done!</strong> You successfully signed up. Please go to log in.
   </div>
-
   <!-- carousel starts here -->
   <div class="carousel main-carousel carousel-default">
     <div class="container-fluid">
       <div class="row">
         <div class="col-sm-12">
-
           <div id="main-slider" class="carousel slide" data-ride="carousel">
-
             <!-- indicaters dot nav-->
             <ol class="carousel-indicators">
               <li data-target="#main-slider" data-slide-to="0" class="active"></li>
@@ -75,39 +67,50 @@
               <li data-target="#main-slider" data-slide-to="3"></li>
               <li data-target="#main-slider" data-slide-to="4"></li>
             </ol>
-
-
             <!-- Wrapper for slides -->
             <div class="carousel-inner" role="listbox">
               <div class="item active">
-                <img src="images/p1-05.jpg" alt="projectonePhoto">
+                <img src="images/p1-01.jpg" alt="projectonePhoto">
                 <div class="carousel-caption">
-                  <h1>Hello! Welcome to XXXXX</h1>
-                  <h1>This is what we do!</h1>
+                  <h1 class="display-1">Hello!</h1>
+                  <h1 class="display-1">Welcome to Lingo Jungle</h1>
+                  <br>
+                  <br>
+                  <!-- <h2>Join us to learn a new language from native speakers.</h2> -->
                 </div>
               </div>
               <div class="item">
                 <img src="images/p1-02.jpg" alt="projectonePhoto">
                 <div class="carousel-caption">
-                  <h1>let's practice your desired language! </h1>
+                  <h1 class="display-1">Let's practice your desired language! </h1>
+                  <br>
+                  <br>
+                  <br>
+                  <br>
                 </div>
               </div>
               <div class="item">
                 <img src="images/p1-04.jpg" alt="projectonePhoto">
                 <div class="carousel-caption">
-                  <h1>Learn from native speakers!</h1>
+                  <h1>Learning from native speakers is fun and exciting!</h1>
+                  <br>
+                  <br>
+                  <br>
+                  <br>
                 </div>
               </div>
               <div class="item">
-                <img src="images/p1-01.jpg" alt="projectonePhoto">
+                <img src="images/p1-05.jpg" alt="projectonePhoto">
                 <div class="carousel-caption">
                   <h1>Get to know the culture!</h1>
+                  <br>
+                  <br>
                 </div>
               </div>
               <div class="item">
                 <img src="images/p1-03.jpg" alt="projectonePhoto">
                 <div class="carousel-caption">
-                  <h1>Get to know the culture!</h1>
+                  <h1></h1>
                 </div>
               </div>
             </div>
@@ -125,12 +128,10 @@
       </div>
     </div>
   </div>
-
   <!-- Large modal user sign up form-->
   <div id="signUpModal" class="modal fade sign-up-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content  text-center">
-
         <div class="container">
           <div class="row">
             <div class="col-md-6">
@@ -170,10 +171,8 @@
             </div>
           </div>
         </div>
-
       </div>
     </div>
   </div><!-- large modal user sign up form end -->
-
 </body>
 </html>

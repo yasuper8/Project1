@@ -145,64 +145,6 @@ $(document).ready(function(){
 
 
 
-  //
-  // //Update current user info
-  // $('.update-currentUser').on('submit', function(e) {
-  //   var gifUrl;
-  //   var userAnimal;
-  //   e.preventDefault();
-  //   // Getting data form giphy api
-  //   if ($('#favoriteAnimal').val() !== "") {
-  //     $.ajax({
-  //       url: "http://api.giphy.com/v1/gifs/search?q=" + $('#favoriteAnimal').val() +  "&api_key=dc6zaTOxFJmzC",
-  //       type: "GET",
-  //       success: successGifUpdate,
-  //       error: errorGif
-  //     });
-  //       gifUrl = gifResponse.data[i].images.fixed_height.url;
-  //   }
-  //   gifUrl = $(this).closest('.update').attr('data-url');
-  //   // Find the user's id (stored in HTML as `data-id`)
-  //   var userId = $(this).closest('.update').attr('data-id');
-  //   console.log("user id is", userId);
-  //
-  //   function successGifUpdate(gifResponse) {
-  //     userAnimal = $('#favoriteAnimal').val();
-  //     var i = getRandomInt(1, 10);
-  //     ;
-  //     $('#profileUrl').val(gifUrl);
-  //     $('#name').val(userAnimal);
-  //     var updatedUser = $("#update-form").serialize();
-  //
-  //     $.ajax({
-  //       type: 'PUT',
-  //       url: '/api/users' + '/' + userId,
-  //       data: updatedUser,
-  //       success: successUpdate,
-  //       ereor: errorUpdate
-  //     });
-  //
-  //     $('#updateModal').modal('toggle');
-  //   };
-  //
-  //   function errorGif(a,b,c) {
-  //     console.log("error getting giffy")
-  //   }
-  //
-  //   function successUpdate(response) {
-  //       console.log("response from update", response)
-  //       $('.reset').val('');
-  //       location.reload()
-  //   }
-  //
-  //   function errorUpdate(a,b,c) {
-  //       console.log("error updating!")
-  //       $('#signUp-error').show();
-  //   }
-  //
-  // }); //end of update
-
-
   // Delete a cunnrent user
 
   // $('#deleteUser').on('click', function(event) {
