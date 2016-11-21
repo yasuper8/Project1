@@ -4,7 +4,7 @@ $(document).ready(function(){
     // check to make sure JS is loaded
   console.log('JS is connected to HTML, and DOM is ready!');
 
-  //Creating romdom integer for getting random image form giphy api
+  //Creating romdom integer for getting a random image form giphy api
   function getRandomInt(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
@@ -59,45 +59,101 @@ $(document).ready(function(){
   }); //end of signup
 
 
+  // //Update current user info
+  // $('.update-currentUser').on('submit', function(e) {
+  //   var gifUrl;
+  //   var userAnimal;
+  //   e.preventDefault();
+  //   // Getting data form giphy api
+  //   $.ajax({
+  //     url: "http://api.giphy.com/v1/gifs/search?q=" + $('#favoriteAnimal').val() +  "&api_key=dc6zaTOxFJmzC",
+  //     type: "GET",
+  //     success: successGifUpdate,
+  //     error: errorGif
+  //   });
+  //
+  //   // Find the user's id (stored in HTML as `data-id`)
+  //   var userId = $(this).closest('.update').attr('data-id');
+  //   console.log("user id is", userId);
+  //
+  //   function successGifUpdate(gifResponse) {
+  //     userAnimal = $('#favoriteAnimal').val();
+  //     var i = getRandomInt(1, 10);
+  //     gifUrl = gifResponse.data[i].images.fixed_height.url;
+  //     $('#profileUrl').val(gifUrl);
+  //     $('#name').val(userAnimal);
+  //     var updatedUser = $("#update-form").serialize();
+  //
+  //     $.ajax({
+  //       type: 'PUT',
+  //       url: '/api/users' + '/' + userId,
+  //       data: updatedUser,
+  //       success: successUpdate,
+  //       ereor: errorUpdate
+  //     });
+  //
+  //     $('#updateModal').modal('toggle');
+  //   };
+  //
+  //   function errorGif(a,b,c) {
+  //     console.log("error getting giffy")
+  //   }
+  //
+  //   function successUpdate(response) {
+  //       console.log("response from update", response)
+  //       $('.reset').val('');
+  //       location.reload()
+  //   }
+  //
+  //   function errorUpdate(a,b,c) {
+  //       console.log("error updating!")
+  //       $('#signUp-error').show();
+  //   }
+  //
+  // }); //end of update
+
+
+
+
+
+
   //Update current user info
   $('.update-currentUser').on('submit', function(e) {
-    var gifUrl;
-    var userAnimal;
     e.preventDefault();
-    // Getting data form giphy api
-    $.ajax({
-      url: "http://api.giphy.com/v1/gifs/search?q=" + $('#favoriteAnimal').val() +  "&api_key=dc6zaTOxFJmzC",
-      type: "GET",
-      success: successGifUpdate,
-      error: errorGif
-    });
 
     // Find the user's id (stored in HTML as `data-id`)
     var userId = $(this).closest('.update').attr('data-id');
     console.log("user id is", userId);
+    var updatedUser = $("#update-form").serialize();
+    console.log("udate user", updatedUser);
+    $.ajax({
+      type: 'PUT',
+      url: '/api/users' + '/' + userId,
+      data: updatedUser,
+      success: successUpdate,
+      ereor: errorUpdate
+    });
 
-    function successGifUpdate(gifResponse) {
-      userAnimal = $('#favoriteAnimal').val();
-      var i = getRandomInt(1, 10);
-      gifUrl = gifResponse.data[i].images.fixed_height.url;
-      $('#profileUrl').val(gifUrl);
-      $('#name').val(userAnimal);
-      var updatedUser = $("#update-form").serialize();
 
-      $.ajax({
-        type: 'PUT',
-        url: '/api/users' + '/' + userId,
-        data: updatedUser,
-        success: successUpdate,
-        ereor: errorUpdate
-      });
+    // gifUrl = gifResponse.data[i].images.fixed_height.url;
+    // $('#profileUrl').val(gifUrl);
+    //
+    // function successGifUpdate(gifResponse) {
+    //   userAnimal = $('#favoriteAnimal').val();
+    //   var i = getRandomInt(1, 10);
+    //   gifUrl = gifResponse.data[i].images.fixed_height.url;
+    //   $('#profileUrl').val(gifUrl);
+    //   $('#name').val(userAnimal);
+    //   var updatedUser = $("#update-form").serialize();
+    //
+    //
+    //
+    //   $('#updateModal').modal('toggle');
+    // };
 
-      $('#updateModal').modal('toggle');
-    };
-
-    function errorGif(a,b,c) {
-      console.log("error getting giffy")
-    }
+    // function errorGif(a,b,c) {
+    //   console.log("error getting giffy")
+    // }
 
     function successUpdate(response) {
         console.log("response from update", response)
@@ -111,6 +167,71 @@ $(document).ready(function(){
     }
 
   }); //end of update
+
+
+
+
+
+
+
+  //
+  // //Update current user info
+  // $('.update-currentUser').on('submit', function(e) {
+  //   var gifUrl;
+  //   var userAnimal;
+  //   e.preventDefault();
+  //   // Getting data form giphy api
+  //   if ($('#favoriteAnimal').val() !== "") {
+  //     $.ajax({
+  //       url: "http://api.giphy.com/v1/gifs/search?q=" + $('#favoriteAnimal').val() +  "&api_key=dc6zaTOxFJmzC",
+  //       type: "GET",
+  //       success: successGifUpdate,
+  //       error: errorGif
+  //     });
+  //       gifUrl = gifResponse.data[i].images.fixed_height.url;
+  //   }
+  //   gifUrl = $(this).closest('.update').attr('data-url');
+  //   // Find the user's id (stored in HTML as `data-id`)
+  //   var userId = $(this).closest('.update').attr('data-id');
+  //   console.log("user id is", userId);
+  //
+  //   function successGifUpdate(gifResponse) {
+  //     userAnimal = $('#favoriteAnimal').val();
+  //     var i = getRandomInt(1, 10);
+  //     ;
+  //     $('#profileUrl').val(gifUrl);
+  //     $('#name').val(userAnimal);
+  //     var updatedUser = $("#update-form").serialize();
+  //
+  //     $.ajax({
+  //       type: 'PUT',
+  //       url: '/api/users' + '/' + userId,
+  //       data: updatedUser,
+  //       success: successUpdate,
+  //       ereor: errorUpdate
+  //     });
+  //
+  //     $('#updateModal').modal('toggle');
+  //   };
+  //
+  //   function errorGif(a,b,c) {
+  //     console.log("error getting giffy")
+  //   }
+  //
+  //   function successUpdate(response) {
+  //       console.log("response from update", response)
+  //       $('.reset').val('');
+  //       location.reload()
+  //   }
+  //
+  //   function errorUpdate(a,b,c) {
+  //       console.log("error updating!")
+  //       $('#signUp-error').show();
+  //   }
+  //
+  // }); //end of update
+
+
 
 
   //Shows all users

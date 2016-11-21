@@ -73,8 +73,8 @@ app.put('/api/users/:id', function (req, res) {
     } else {
       // update the users's attributes
       foundUser.learnLang = req.body.learnLang;
-      foundUser.favoriteAnimal = req.body.favoriteAnimal;
-      foundUser.profileUrl = req.body.profileUrl;
+      // foundUser.favoriteAnimal = req.body.favoriteAnimal;
+      // foundUser.profileUrl = req.body.profileUrl;
 
       // save updated user in db
       foundUser.save(function (err, savedUser) {
