@@ -52,8 +52,40 @@ $('#signup-form').on('submit', function(e) {
 
 }); //end of signup
 
+
+$('.update-currentUser').on('submit', function (e) {
+  e.preventDefault();
+
+  // find the todo's id (stored in HTML as `data-id`)
+  var userId = $(this).closest('.currentUser').attr('data-id');
+  console.log(userId)
+  // find the todo to update by its id
+  var userToUpdate = allUsers.filter(function (currentUser) {
+    return currentUser._id == userId;
+  })[0];
+  console.log(currentUser._id);
+
+  // serialze form data
+  var updatedUser = $(this).serialize();
+  console.log(updatedUser)
+
+  // PUT request to update todo
+  $.ajax({
+    type: 'PUT',
+    url: '/api/languages' + '/' + userId,
+    data: updatedUser,
+    success: function(data) {
+      //  replace todo to update with newly updated version (data)
+    allUsers.splice(allUsers.indexOf(userToUpdate), 1, data);
+      // render all todos to view
+      render();
+    }
+  });
+})
+
+
     var userId = $('.welcome').data('id');
-    console.log(userId);
+  //  console.log(userId);
     $.ajax({
       method: 'GET',
       url: '/api/languages/' + userId,
@@ -63,16 +95,8 @@ $('#signup-form').on('submit', function(e) {
     });
 
 
-    // $('#findMatch').on('click', function() {
-    //   console.log("find match button clicked!");
-    //
-    // });
-
     function getUserSuccess(json) {
-        allUsers = json;
-        for (var i=0; i<allUsers.length; i++) {
-        console.log(allUsers[i].nativeLang)
-      }
+      allUsers = json;
       renderUser();
     }
 
