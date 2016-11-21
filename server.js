@@ -93,7 +93,7 @@ app.put('/api/users/:id', function (req, res) {
  */
 
 app.get('/', function homepage(req, res) {
-    res.sendFile(__dirname + '/views/index.html');
+    res.render('signup');
 });
 
 app.get('/signup', function(req, res) {

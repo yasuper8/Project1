@@ -36,9 +36,11 @@ function create(req, res) {
 
 // Delete a current user
   function destroy(req, res) {
-  db.Photo.findOneAndRemove({_id: req.params.id}, function(err, user) {
+  db.User.findOneAndRemove({_id: req.params.id}, function(err, user) {
     console.log('sever error ', err)
-    res.json(user);
+    // res.json(user);
+    // res.redirect('/login');
+    res.send("Successfully deleted!")
   });
 }
 

@@ -147,36 +147,33 @@ $(document).ready(function(){
 
   // Delete a cunnrent user
 
-  // $('#deleteUser').on('click', function(event) {
-  //   event.preventDefault();
-  //   var userId = $(this).closest('#deleteUser').attr('data-id');
-  //   console.log(userId);
-  //   $.ajax({
-  //     method: 'DELETE',
-  //     url: "api/users/" + $(this).attr('data-id'),
-  //     success: handleDeleteAUser,
-  //     error: handleDeleteAUser
-  //   });
-  //
-  // });
-  //
-  // function handleDeleteAUser(json) {
-  //   var deleteThisUser = json;
-  //   var userId = $(this).closest('#deleteUser').attr('data-id');
-  //
-  //   for (var i = 0; i < users.length; i++) {
-  //     if (user[i]._id === userId) {
-  //       users.splice(i, 1);
-  //       renderUser();
-  //       break;  // No reason to keep searching after find a photo (this is why didn't use forEach)
-  //     }
-  //   }
-  // }
-  //
-  // function handleDeleteUser(e) {
-  //   console.log('uh oh');
-  //   $('#results').text('Failed to delete a user, is the server working?');
-  // }
+  $('.deleteUser').on('click', function(event) {
+    event.preventDefault();
+    console.log("delete btn clicked!");
+    var userId = $(this).closest('.deleteUser').attr('data-id');
+    console.log(userId);
+    $.ajax({
+      method: 'DELETE',
+      url: "api/users/" + $(this).attr('data-id'),
+      success: handleDeleteAUser,
+      error: handleDeleteAUser
+    });
+  });
+
+  function handleDeleteAUser(json) {
+    console.log("delete a user success!")
+    // $.ajax({
+    //   method: 'DELETE',
+    //   url: "api/users/" + $(this).attr('data-id'),
+    //   success: handleDeleteAUser,
+    //   error: handleDeleteAUser
+    // });
+  }
+
+  function handleDeleteUser(e) {
+    console.log('uh oh');
+    $('#results').text('Failed to delete a user, is the server working?');
+  }
 
 
 
