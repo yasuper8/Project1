@@ -48,14 +48,12 @@
             <li class=""><a data-toggle="modal" data-target=".update-modal" href="">Update your info!</a></li>
               <li class=""><a id="logout" href="/logout">Log Out</a></li>
           </ul>
-        </div><!-- /.navbar-collapse -->
-      </div><!-- /.container-fluid -->
+        </div>
+      </div>
     </nav>
 
 
-    <!-- Large modal -->
-
-
+    <!-- Large modal user update-->
     <div id="updateModal" class="modal fade update-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content  text-center">
@@ -90,8 +88,7 @@
 
         </div>
       </div>
-    </div>
-
+    </div><!-- user pudate modal end -->
 
     <div class="wrapper-md">
         <div class="panel-heading text-center">
@@ -102,29 +99,8 @@
             <h2 class="welcome" data-id="<%=user._id%>">You're logged in as <strong><%= user.favoriteAnimal %></strong></h2>
             <br>
 
-
-            <!-- <div class="pull-right">
-                    <a href="javascript:void(0)" data-toggle="collapse" data-target="#update-<%= user._id %>">
-                    <span class="glyphicon glyphicon-pencil"></span>
-                    </a>
-                      </div>
-                        <div class = "collapse" id="update-<%= user._id %>">
-                             <br>
-                             <form class="form-inline update-currentUser">
-                               <div class="form-group">
-                                 <input type="text" name="learnLang" class="form-control" placeholder="Which languages do you want to learn?">
-                               </div>
-                               <div class="form-group">
-                                 <input type="submit" class="btn btn-block btn-default" value="Update">
-                               </div>
-                             </form>
-                           </div>
-                         </div>
-                       </div> -->
-            <!-- end of update user info -->
-
         </div>
-
+        <!-- beginning current user profile -->
         <div class="container">
           <div class="row">
             <div class="col-xs-12 col-sm-6 col-md-6 currentUserProfile" data-id="<%=user._id%>">
@@ -159,40 +135,18 @@
             </div>
           </div>
         </div>
-
+       <!--end of current user profile -->
         <br>
         <div class="text-center">
           <h1><strong>Potential Language Exchange Partners Found!</strong></h1>
         </div>
         <br>
-        <!-- beginning current user profile -->
-           <!-- <div class="col w-md bg-white-only b-l bg-auto no-border-xs currentUser" data-id="<%=user._id%>">
-               <div class="wrapper-md">
-                   <div class="m-b-sm text-md">My Profile</div>
-                   <ul class="list-group no-bg no-borders pull-in">
-                       <li class="list-group-item">
-                           <a herf class="pull-left thumb-sm avatar m-r">
-                               <img src="<%= user.profileUrl %>" alt="currentUser image">
-                               <i class="on b-white bottom"></i>
-                           </a>
-                           <div class="clear">
-                               <div>Anonymous <%= user.name %></div>
-                               <small class='native-lang text-muted'>Speaks <%= user.nativeLang %></small>
-                               <small class='learning-lang text-muted'>Learning <%= user.learnLang %> </small>
-                           </div>
-                       </li>
-                     </ul>
-               </div>
-           </div> -->
-           <!--end of current user profile -->
-          <br>
 
-
-
+        <br>
 
         <div class="table-responsive">
+          <!-- found user profiles -->
             <div id='foundUsers'>
-
               <div class="container">
                   <div class="row">
                       <script id="users-template" type="text/x-handlebars-template">
@@ -232,8 +186,6 @@
               </div>
                   <!-- end of user row -->
             </div>
-
-            <!-- end one user -->
         </div>
     </div>
 </body>

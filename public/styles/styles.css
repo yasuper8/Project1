@@ -1,3 +1,6 @@
+body {
+  background-color: #FAF3DD;
+}
 .jumbotron {
   background-image: url(/images/background1.jpg);
   background-size: cover;
@@ -7,43 +10,26 @@
 .jumbotron .container {
   height: 350px;
 }
-
 .inline-header {
   display: inline-block;
   vertical-align: baseline;
   margin-right: 12px;
 }
-body {
-  background-color: #FAF3DD;
-}
-
 .navbar-default {
-    background-color: #AED9E0;
-    border-color: #E7E7E7;
+  background-color: #AED9E0;
+  border-color: #E7E7E7;
 }
 .main-caruosel {
   position: relative;
 }
-
-/*.modalBtn {
-  position: absolute;
-  top: 30%;
-}*/
-
-
-
 .hover-slide {
-    position: absolute;
-    z-index: 10;
-
-    margin-top: 10%;
+  position: absolute;
+  z-index: 10;
+  margin-top: 10%;
 }
-
-
 #formSignUp {
   max-width: 80%
 }
-
 @media (min-width: 768px) {
   .currentUserProfile {
     margin-left: 23%;

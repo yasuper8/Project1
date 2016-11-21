@@ -1,23 +1,18 @@
 console.log("Sanity Check: JS is working!");
 
 $(document).ready(function(){
-
     // check to make sure JS is loaded
   console.log('JS is connected to HTML, and DOM is ready!');
 
-
-
-  //Creating romdom integer for getting random image form giphy
+  //Creating romdom integer for getting random image form giphy api
   function getRandomInt(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min)) + min;
   }
 
-//signup button clicked
-$('#signup-form').on('submit', function(e) {
-    console.log("form clicked!")
-    console.log($('#cityDropdown option:selected').text());
+  //Signup form submit
+  $('#signup-form').on('submit', function(e) {
     var gifUrl;
     var userAnimal;
     e.preventDefault();
@@ -61,13 +56,11 @@ $('#signup-form').on('submit', function(e) {
         $('#signUp-error').show();
     }
 
-}); //end of signup
+  }); //end of signup
 
 
-
-
-//update current user info
-$('.update-currentUser').on('submit', function(e) {
+  //Update current user info
+  $('.update-currentUser').on('submit', function(e) {
     var gifUrl;
     var userAnimal;
     e.preventDefault();
@@ -79,7 +72,7 @@ $('.update-currentUser').on('submit', function(e) {
       error: errorGif
     });
 
-    // find the user's id (stored in HTML as `data-id`)
+    // Find the user's id (stored in HTML as `data-id`)
     var userId = $(this).closest('.update').attr('data-id');
     console.log("user id is", userId);
 
@@ -109,6 +102,7 @@ $('.update-currentUser').on('submit', function(e) {
     function successUpdate(response) {
         console.log("response from update", response)
         $('.reset').val('');
+        location.reload()
     }
 
     function errorUpdate(a,b,c) {
@@ -116,34 +110,10 @@ $('.update-currentUser').on('submit', function(e) {
         $('#signUp-error').show();
     }
 
-
-}); //end of update
-
+  }); //end of update
 
 
-  // $('.update-currentUser').on('submit', function (e) {
-  //   e.preventDefault();
-  //
-  //   // find the user's id (stored in HTML as `data-id`)
-  // var userId = $(this).closest('.update').attr('data-id');
-  //
-  //   // serialze form data
-  //   var updatedUser = $(this).serialize();
-  //   console.log("this is the updatedUser :",updatedUser)
-  //
-  //   // PUT request to update the user
-  //   $.ajax({
-  //     type: 'PUT',
-  //     url: '/api/users' + '/' + userId,
-  //     data: updatedUser,
-  //     success: successUpdate,
-  //     ereor: errorUpdate
-  //   });
-  //
-  // });
-
-
-//shows all users
+  //Shows all users
   var userId = $('.welcome').data('id');
   console.log(userId);
   $.ajax({
@@ -167,38 +137,9 @@ $('.update-currentUser').on('submit', function(e) {
   function renderUser() {
     var source = $('#users-template').html();
     var template = Handlebars.compile(source);
-    //console.log(allUsers)
     var usersHtml = template({ users: allUsers });
     $('#foundUsers').prepend(usersHtml);
   };
 
-  // function successUpdate(data) {
-  //    //  replace user to update with newly updated version (data)
-  //    console.log("response from update", data)
-  //     $('#updateModal').modal('toggle');
-  //     $('.reset').val('');
-  //    // render all todos to view
-  //    renderUser();
-  //  };
-  //
-  //  function errorUpdate(a,b,c) {
-  //    console.log("update user error!")
-  //  };
-
-
 
 }) // end ready
-
-
-//
-// $('#userSignUpCityAnimal').on('submit', function(e) {
-//   e.preventDefault();
-//   console.log('new user current city, passwords serialized', $(this).serialize());
-//   $.ajax({
-//     method: 'POST',
-//     url: '/api/users',
-//     data: $(this).serialize(),
-//     success: newUserSuccess,
-//     error: newUserError
-//   });
-// });

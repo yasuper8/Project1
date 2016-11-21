@@ -16,7 +16,6 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 
-
 //renders signup and signin pages
 app.set('view engine', 'ejs');
 
@@ -48,6 +47,7 @@ var User = require('./models/user');
 /**********
  * ROUTES *
  **********/
+
 //is this /users or /signup?
 app.post('/signup', function(req, res) {
     console.log('request body: ', req.body);
@@ -62,7 +62,7 @@ app.post('/users', function(req, res) {
     });
 });
 
-// update user
+// Update user
 app.put('/api/users/:id', function (req, res) {
   // get user id from url params (`req.params`)
   var currentUserId = req.params.id;
@@ -88,28 +88,6 @@ app.put('/api/users/:id', function (req, res) {
   });
 });
 
-
-
-// app.put('/api/users/:id', function(req, res) {
-//     // find the user currently logged in
-//     User.findOne({
-//         _id: req.params.id
-//     }, function(err, foundUser) {
-//       if(err){return console.log("ERR: " , err);}else {
-//         // update the users's attributes
-//         foundUser.learnLang = req.body.learnLang;
-//
-//         // save updated user in db
-//         foundUser.save(function (err, savedUser) {
-//           if (err) {
-//             res.status(500).json({ error: err.message });
-//           } else {
-//             res.json(savedUser);
-//           }
-//         });
-//     });
-// });
-
 /*
  * HTML Endpoints
  */
@@ -122,13 +100,12 @@ app.get('/signup', function(req, res) {
     res.render('signup');
 });
 
-// login route with placeholder response
+// Login route with placeholder response
 app.get('/login', function(req, res) {
     res.render('login');
 });
 
-
-//a post sessions route to store our session data
+//A post sessions route to store our session data
 app.post('/sessions', function(req, res) {
     db.User.authenticate(req.body.email, req.body.password, function(err, user) {
         if (user) {
@@ -140,7 +117,7 @@ app.post('/sessions', function(req, res) {
     });
 });
 
-// show user profile page
+// Show user profile page
 app.get('/profile', function(req, res) {
     // find the user currently logged in
     User.findOne({
@@ -153,10 +130,7 @@ app.get('/profile', function(req, res) {
     });
 });
 
-
-
-
-// show user profile page
+// Show user profile page
 app.get('/api/languages/:id', function(req, res) {
     // find the user currently logged in
     User.findOne({
@@ -170,21 +144,19 @@ app.get('/api/languages/:id', function(req, res) {
       User.find({nativeLang: currentUser.learnLang}, function nativeSpeakers(err, newFriends){
         console.log('We found ' + newFriends.length + ' native speakers');
         // var foundMessage = 'We found ' + newFriends.length + ' native speakers';
-
         res.json(newFriends)
       })
     });
 });
 
-
-
-//logout
+//Logout
 app.get('/logout', function(req, res) {
     // remove the session user id
     req.session.userId = null;
     // redirect to login (for now)
     res.redirect('/login');
 });
+
 /*
  * JSON API Endpoints
  */
