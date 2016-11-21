@@ -6,18 +6,6 @@ $(document).ready(function(){
   console.log('JS is connected to HTML, and DOM is ready!');
 
 
-  // $('#userSignUpForm').on('submit', function(e) {
-  //     e.preventDefault();
-  //     console.log('new user name, passwords serialized', $(this).serialize());
-  //     $.ajax({
-  //       method: 'POST',
-  //       url: '/api/users',
-  //       data: $(this).serialize(),
-  //       success: newUserSuccess,
-  //       error: newUserError
-  //     });
-  //   });
-
 
   //Creating romdom integer for getting random image form giphy
   function getRandomInt(min, max) {
@@ -73,160 +61,129 @@ $('#signup-form').on('submit', function(e) {
         $('#signUp-error').show();
     }
 
-
-    // // Getting data form giphy api
-    //
-    // $('.#userSignUpForm').click(function(e) {
-    //   e.preventDefault()
-    //   console.log("click noticed")
-    //
-    //   $.ajax({
-    //     url: "http://api.giphy.com/v1/gifs/search?q=" + $('#favoriteAnimal').val() +  "&api_key=dc6zaTOxFJmzC",
-    //     type: "GET",
-    //     success: successGif,
-    //     error: errorGif
-    //   });
-    // });
-    //
-    //
-    // function successGif(gifResponse) {
-    //   console.log(gifResponse.data[0].bitly_url);
-    // }
-
 }); //end of signup
 
 
 
 
-// //update current user info
-// $('#update-form').on('submit', function(e) {
-//     console.log("Update form clicked!")
-//     var gifUrl;
-//     var userAnimal;
-//     e.preventDefault();
-//     // Getting data form giphy api
-//     $.ajax({
-//       url: "http://api.giphy.com/v1/gifs/search?q=" + $('#favoriteAnimal').val() +  "&api_key=dc6zaTOxFJmzC",
-//       type: "GET",
-//       success: successGifUpdate,
-//       error: errorGif
-//     });
-//
-//     // find the user's id (stored in HTML as `data-id`)
-//     var userId = $(this).closest('.update').attr('data-id');
-//     console.log("user id is", userId);
-//
-//     function successGifUpdate(gifResponse) {
-//       userAnimal = $('#favoriteAnimal').val();
-//       var i = getRandomInt(1, 10);
-//       gifUrl = gifResponse.data[i].images.fixed_height.url;
-//       $('#profileUrl').val(gifUrl);
-//       $('#name').val(userAnimal);
-//       var updatedData = $("#update-form").serialize();
-//
-//       $.ajax({
-//         url: "/api/users/" + userId,
-//         type: "PUT",
-//         data: updatedData,
-//         success: successUpdate,
-//         error: errorUpdate
-//       });
-//       $('#updateModal').modal('toggle');
-//     };
-//
-//     function errorGif(a,b,c) {
-//       console.log("error getting giffy")
-//     }
-//
-//     function successUpdate(response) {
-//         console.log("response from update", response)
-//     }
-//
-//     function errorUpdate(a,b,c) {
-//         console.log("error updating!")
-//         $('#signUp-error').show();
-//     }
-//
-//
-// }); //end of update
-
 //update current user info
-$('#update-form').on('submit', function(e) {
-    console.log("Update form clicked!")
+$('.update-currentUser').on('submit', function(e) {
+    var gifUrl;
+    var userAnimal;
     e.preventDefault();
+    // Getting data form giphy api
+    $.ajax({
+      url: "http://api.giphy.com/v1/gifs/search?q=" + $('#favoriteAnimal').val() +  "&api_key=dc6zaTOxFJmzC",
+      type: "GET",
+      success: successGifUpdate,
+      error: errorGif
+    });
 
     // find the user's id (stored in HTML as `data-id`)
     var userId = $(this).closest('.update').attr('data-id');
     console.log("user id is", userId);
 
-    var updatedData = $("#update-form").serialize();
-    console.log("updated info :", updatedData)
-    $.ajax({
-      url: "/api/users/" + userId,
-      type: "PUT",
-      data: updatedData,
-      success: successUpdate,
-      error: errorUpdate
-    });
+    function successGifUpdate(gifResponse) {
+      userAnimal = $('#favoriteAnimal').val();
+      var i = getRandomInt(1, 10);
+      gifUrl = gifResponse.data[i].images.fixed_height.url;
+      $('#profileUrl').val(gifUrl);
+      $('#name').val(userAnimal);
+      var updatedUser = $("#update-form").serialize();
 
+      $.ajax({
+        type: 'PUT',
+        url: '/api/users' + '/' + userId,
+        data: updatedUser,
+        success: successUpdate,
+        ereor: errorUpdate
+      });
+
+      $('#updateModal').modal('toggle');
+    };
+
+    function errorGif(a,b,c) {
+      console.log("error getting giffy")
+    }
 
     function successUpdate(response) {
         console.log("response from update", response)
-        $('#updateModal').modal('toggle');
+        $('.reset').val('');
     }
 
-    function errorUpdate(err, b, c) {
-        console.log("error a updating!", err)
-        console.log("error b updating!", b)
-        console.log("error c updating!", c)
-        // $('#signUp-error').show();
+    function errorUpdate(a,b,c) {
+        console.log("error updating!")
+        $('#signUp-error').show();
     }
 
 
-}); //end user update
+}); //end of update
 
 
 
-    var userId = $('.welcome').data('id');
-    console.log(userId);
-    $.ajax({
-      method: 'GET',
-      url: '/api/languages/' + userId,
-      type: 'json',
-      success: getUserSuccess,
-      error: getUserError
-    });
+  // $('.update-currentUser').on('submit', function (e) {
+  //   e.preventDefault();
+  //
+  //   // find the user's id (stored in HTML as `data-id`)
+  // var userId = $(this).closest('.update').attr('data-id');
+  //
+  //   // serialze form data
+  //   var updatedUser = $(this).serialize();
+  //   console.log("this is the updatedUser :",updatedUser)
+  //
+  //   // PUT request to update the user
+  //   $.ajax({
+  //     type: 'PUT',
+  //     url: '/api/users' + '/' + userId,
+  //     data: updatedUser,
+  //     success: successUpdate,
+  //     ereor: errorUpdate
+  //   });
+  //
+  // });
 
 
-
-    $('#findMatch').on('click', function() {
-      console.log("find match button clicked!");
-
-    });
-
-    function getUserSuccess(json) {
-        allUsers = json;
-        for (var i=0; i<allUsers.length; i++) {
-        console.log(allUsers[i].nativeLang)
-      }
-      renderUser();
-    }
-
-    function getUserError(a,b,c) {
-      console.log("can't get user!")
-    }
-
-    function renderUser() {
-      var source = $('#users-template').html();
-      var template = Handlebars.compile(source);
-      //console.log(allUsers)
-      var usersHtml = template({ users: allUsers });
-      $('#foundUsers').prepend(usersHtml);
-    };
+//shows all users
+  var userId = $('.welcome').data('id');
+  console.log(userId);
+  $.ajax({
+    method: 'GET',
+    url: '/api/languages/' + userId,
+    type: 'json',
+    success: getUserSuccess,
+    error: getUserError
+  });
 
 
+  function getUserSuccess(json) {
+      allUsers = json;
+    renderUser();
+  }
 
+  function getUserError(a,b,c) {
+    console.log("can't get user!")
+  }
 
+  function renderUser() {
+    var source = $('#users-template').html();
+    var template = Handlebars.compile(source);
+    //console.log(allUsers)
+    var usersHtml = template({ users: allUsers });
+    $('#foundUsers').prepend(usersHtml);
+  };
+
+  // function successUpdate(data) {
+  //    //  replace user to update with newly updated version (data)
+  //    console.log("response from update", data)
+  //     $('#updateModal').modal('toggle');
+  //     $('.reset').val('');
+  //    // render all todos to view
+  //    renderUser();
+  //  };
+  //
+  //  function errorUpdate(a,b,c) {
+  //    console.log("update user error!")
+  //  };
 
 
 

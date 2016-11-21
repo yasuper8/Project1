@@ -62,6 +62,53 @@ app.post('/users', function(req, res) {
     });
 });
 
+// update user
+app.put('/api/users/:id', function (req, res) {
+  // get user id from url params (`req.params`)
+  var currentUserId = req.params.id;
+  // find userId in db
+  db.User.findOne({ _id: currentUserId }, function (err, foundUser) {
+    if (err) {
+      res.status(500).json({ error: err.message });
+    } else {
+      // update the users's attributes
+      foundUser.learnLang = req.body.learnLang;
+      foundUser.favoriteAnimal = req.body.favoriteAnimal;
+      foundUser.profileUrl = req.body.profileUrl;
+
+      // save updated user in db
+      foundUser.save(function (err, savedUser) {
+        if (err) {
+          res.status(500).json({ error: err.message });
+        } else {
+          res.json(savedUser);
+        }
+      });
+    }
+  });
+});
+
+
+
+// app.put('/api/users/:id', function(req, res) {
+//     // find the user currently logged in
+//     User.findOne({
+//         _id: req.params.id
+//     }, function(err, foundUser) {
+//       if(err){return console.log("ERR: " , err);}else {
+//         // update the users's attributes
+//         foundUser.learnLang = req.body.learnLang;
+//
+//         // save updated user in db
+//         foundUser.save(function (err, savedUser) {
+//           if (err) {
+//             res.status(500).json({ error: err.message });
+//           } else {
+//             res.json(savedUser);
+//           }
+//         });
+//     });
+// });
 
 /*
  * HTML Endpoints
@@ -107,32 +154,6 @@ app.get('/profile', function(req, res) {
 });
 
 
-//update user profile info
-app.put('/api/users/:id', function(req, res) {
-  // var id = req.params.id;
-  // var nativeLang = req.body.nativeLang;
-  var learnLang = req.body.learnLang;
-  // var favoriteAnimal = req.body.favoriteAnimal;
-  console.log("this is from update req body",learnLang)
-  // User.findOne({
-  //     _id: req.session.userId
-  // }, function(err, currentUser) {
-  //     res.render('index.ejs', {
-  //         user: currentUser
-  //     })
-  //
-  // });
-  User.findById(id, function (err, user) {
-  if (err) return handleError(err);
-
-  user.learnLang = learnLang;
-  user.save(function (err, updatedUser) {
-    if (err) return handleError(err);
-    res.send(updatedUser);
-  });
-});
-})
-
 
 
 // show user profile page
@@ -154,6 +175,9 @@ app.get('/api/languages/:id', function(req, res) {
       })
     });
 });
+
+
+
 //logout
 app.get('/logout', function(req, res) {
     // remove the session user id
