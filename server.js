@@ -92,8 +92,14 @@ app.put('/api/users/:id', function (req, res) {
  * HTML Endpoints
  */
 
+
+
+ // app.get('/', function homepage(req, res) {
+ //     res.render('signup');
+ // });
+
 app.get('/', function homepage(req, res) {
-    res.render('signup');
+    res.sendFile(__dirname + '/views/signup.ejs');
 });
 
 app.get('/signup', function(req, res) {
