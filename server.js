@@ -94,9 +94,9 @@ app.put('/api/users/:id', function (req, res) {
 
 
 
- // app.get('/', function homepage(req, res) {
- //     res.render('signup');
- // });
+ app.get('/', function homepage(req, res) {
+     res.render('signup');
+ });
 
 app.get('/', function homepage(req, res) {
     res.sendFile(__dirname + '/views/signup.ejs');
