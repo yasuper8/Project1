@@ -43,7 +43,6 @@ $('#signup-form').on('submit', function(e) {
 
     function successSignup(response) {
         console.log(response)
-
     }
 
     function errorSignup(a,b,c) {
@@ -122,7 +121,6 @@ $('.update-currentUser').on('submit', function (e) {
     function errorUpdate(a,b,c) {
       console.log("update user error!")
     };
-
 
 
 

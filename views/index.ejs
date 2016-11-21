@@ -20,17 +20,17 @@
     <!-- application css -->
     <link type="text/css" rel="stylesheet" href="styles/app.css">
 
-    <title>AppName</title>
+    <title>Lingo Jungle</title>
 </head>
 
 <body>
 
-  <!-- begin welcome message -->
+    <!-- begin welcome message -->
 
     <div class="bg-light lter b-b wrapper-md">
         <div class="row">
             <div class="col-sm-6 col-xs-12">
-                <h1 class="m-n font-thin h3 text-black">AppName</h1>
+                <img src="images/logo.png" alt="logo" style="width:100px;height:63px;">
                 <small class="welcome text-muted" data-id="<%=user._id%>">Welcome! You're logged in as <%= user.email %></small>
             </div>
             <div class="col-sm-6 text-right hidden-xs">
@@ -51,33 +51,35 @@
                         <img src="<%= user.profileUrl %>" alt="currentUser image">
                     </a>
                     <div class="clear">
-                        <div>Anonymous <%= user.name %></div>
-                        <small class='native-lang text-muted'>Speaks <%= user.nativeLang %></small>
-                        <small class='learning-lang text-muted'>Learning <%= user.learnLang %> </small>
+                        <div>Anonymous
+                            <%= user.name %>
+                        </div>
+                        <span class='native-lang text-muted'>I speak <%= user.nativeLang %></span><br>
+                        <span class='learning-lang text-muted'>I'm learning <%= user.learnLang %> </span>
                     </div>
                 </li>
-              </ul>
+            </ul>
 
-<!-- update user info -->
-      <div class="pull-right">
-        <a href="javascript:void(0)" data-toggle="collapse" data-target="#update-<%= user._id %>">
-        <span class="glyphicon glyphicon-pencil"></span>
-        </a>
-          </div>
-            <div class = "collapse" id="update-<%= user._id %>">
-                 <br>
-                 <form class="form-inline update-currentUser">
-                   <div class="form-group">
-                     <input type="text" name="learnLang" class="form-control" placeholder="Which languages do you want to learn?">
-                   </div>
-                   <div class="form-group">
-                     <input type="submit" class="btn btn-block btn-default" value="Update">
-                   </div>
-                 </form>
-               </div>
-             </div>
-           </div>
-<!-- end of update user info -->
+            <!-- update user info -->
+            <div class="pull-right">
+                <a href="javascript:void(0)" data-toggle="collapse" data-target="#update-<%= user._id %>">
+                    <span class="glyphicon glyphicon-pencil"></span>
+                </a>
+            </div>
+            <div class="collapse" id="update-<%= user._id %>">
+                <br>
+                <form class="form-inline update-currentUser">
+                    <div class="form-group">
+                        <input type="text" name="learnLang" class="form-control" placeholder="Which languages do you want to learn?">
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-block btn-default" value="Update">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- end of update user info -->
     <!--end of current user profile-->
 
     <!-- main -->
@@ -87,34 +89,31 @@
         <div class="table-responsive">
             <div id='foundUsers'>
                 <!-- one user -->
-                    <div class="panel panel-default">
-                        <!-- begin one user row -->
-                        <script id="users-template" type="text/x-handlebars-template">
-                            {{#each users}}
+                <div class="panel panel-default">
+                    <!-- begin one user row -->
+                    <script id="users-template" type="text/x-handlebars-template">
+                        {{#each users}}
+                        <div class="col">
+                            <div class="list-group list-group-lg list-group-sp">
+                                <a herf class="list-group-item clearfix">
+                                    <span class="pull-left thumb-sm avatar m-r">
+                                      <img src="{{profileUrl}}" alt="user image">
+                                    </span>
+                                    <span class="clear">
+                                    <span class='name'>Anonymous {{name}}</span>
+                                    <small class="text-muted clear text-ellipsis">Speakes {{nativeLang}}</small>
+                                    <small class="text-muted clear text-ellipsis">Learning {{learnLang}}</small>
+                                    <span class="email"><a href="mailto:{{email}}"><i class="glyphicon glyphicon-envelope icon"></i></a></span>
+                                    </span>
+                                </a>
+                              </div>
+                            </div>
+                        {{/each}}
+                    </script>
+                    <!-- end of user row -->
 
-                            <div class="col">
-                                <div class="list-group list-group-lg list-group-sp">
-                                    <a herf class="list-group-item clearfix">
-                                        <span class="pull-left thumb-sm avatar m-r">
-                <img src="{{profileUrl}}" alt="user image">
-              </span>
-                                        <span class="clear">
-                <span class='name'>Anonymous {{name}}</span>
-                                        <small class="text-muted clear text-ellipsis">Speakes {{nativeLang}}</small>
-                                        <small class="text-muted clear text-ellipsis">Learning {{learnLang}}</small>
-                                        <!-- <span class="text-muted clear text-ellipsis" a href="mailto:{{email}}">email Me!</a></span> -->
-                                        <span class="pull-right label bg-info inline m-t-sm" a href="mailto:{{email}}">Email Me!</a></span>
-                                        </span>
-                                    </a>
-                                    {{/each}}
-                        </script>
-
-                        <!-- end of user row -->
-                        </div>
-                        </div>
-                    </div>
-                    <!-- end one user -->
-
+                </div>
+                <!-- end one user -->
             </div>
         </div>
     </div>

@@ -4,6 +4,8 @@ var express = require('express'),
     bodyParser = require('body-parser'),
     controllers = require('./controllers'),
     session = require('express-session');
+    //require the Twilio module and create a REST client
+  //  client = require('twilio')('AC91ef6cd2a80c75d5940ca3e30b74f187', 'eb02a03f09f268f2c1fd62e4348063ad');
 
 // MIDDLEWARE
 
@@ -154,6 +156,27 @@ app.get('/logout', function(req, res) {
     // redirect to login (for now)
     res.redirect('/login');
 });
+
+// //Send an SMS text message
+// client.sendMessage({
+//
+//     to:'+15105019583', // Any number Twilio can deliver to
+//     from: '+15105019583', // A number you bought from Twilio and can use for outbound communication
+//     body: 'Hello World!' // body of the SMS message
+//
+// }, function(err, responseData) { //this function is executed when a response is received from Twilio
+//
+//     if (!err) { // "err" is an error received during the request, if any
+//
+//         // "responseData" is a JavaScript object containing data received from Twilio.
+//         // A sample response from sending an SMS message is here (click "JSON" to see how the data appears in JavaScript):
+//         // http://www.twilio.com/docs/api/rest/sending-sms#example-1
+//
+//         console.log(responseData.from); // outputs "+14506667788"
+//         console.log(responseData.body); // outputs "word to your mother."
+//
+//     }
+// });
 /*
  * JSON API Endpoints
  */
