@@ -11,7 +11,9 @@ Who should use: Anyone who wants to learn a new language!
 
 How to use: When the Users signs up, they are asked to enter their native language and the language they are learning. The App will find language exchange partners based on the criteria the User enters. User can then contact the potential partner by emailing them.
 
-https://sleepy-crag-66146.herokuapp.com/
+Lingo Jungle link : https://sleepy-crag-66146.herokuapp.com
+
+GitHub link : https://github.com/yasuper8/Project1
 
 ## Credits
 Sophie Luo & Yasuyoshi Sakamoto
