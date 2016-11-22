@@ -40,6 +40,7 @@ $(document).ready(function(){
         error: errorSignup
       });
       $('#signUpModal').modal('toggle');
+      $('.reset').val('');
       $('#signUp-succ').show();
     };
 
@@ -48,70 +49,15 @@ $(document).ready(function(){
     }
 
     function successSignup(response) {
-        console.log(response)
+      console.log(response)
     }
 
     function errorSignup(a,b,c) {
-        console.log("error signup!")
-        $('#signUp-error').show();
+      console.log("error signup!")
+      $('#signUp-error').show();
     }
 
   }); //end of signup
-
-
-  // //Update current user info
-  // $('.update-currentUser').on('submit', function(e) {
-  //   var gifUrl;
-  //   var userAnimal;
-  //   e.preventDefault();
-  //   // Getting data form giphy api
-  //   $.ajax({
-  //     url: "http://api.giphy.com/v1/gifs/search?q=" + $('#favoriteAnimal').val() +  "&api_key=dc6zaTOxFJmzC",
-  //     type: "GET",
-  //     success: successGifUpdate,
-  //     error: errorGif
-  //   });
-  //
-  //   // Find the user's id (stored in HTML as `data-id`)
-  //   var userId = $(this).closest('.update').attr('data-id');
-  //   console.log("user id is", userId);
-  //
-  //   function successGifUpdate(gifResponse) {
-  //     userAnimal = $('#favoriteAnimal').val();
-  //     var i = getRandomInt(1, 10);
-  //     gifUrl = gifResponse.data[i].images.fixed_height.url;
-  //     $('#profileUrl').val(gifUrl);
-  //     $('#name').val(userAnimal);
-  //     var updatedUser = $("#update-form").serialize();
-  //
-  //     $.ajax({
-  //       type: 'PUT',
-  //       url: '/api/users' + '/' + userId,
-  //       data: updatedUser,
-  //       success: successUpdate,
-  //       ereor: errorUpdate
-  //     });
-  //
-  //     $('#updateModal').modal('toggle');
-  //   };
-  //
-  //   function errorGif(a,b,c) {
-  //     console.log("error getting giffy")
-  //   }
-  //
-  //   function successUpdate(response) {
-  //       console.log("response from update", response)
-  //       $('.reset').val('');
-  //       location.reload()
-  //   }
-  //
-  //   function errorUpdate(a,b,c) {
-  //       console.log("error updating!")
-  //       $('#signUp-error').show();
-  //   }
-  //
-  // }); //end of update
-
 
   //Update current user info
   $('.update-currentUser').on('submit', function(e) {
@@ -131,19 +77,17 @@ $(document).ready(function(){
     });
 
     function successUpdate(response) {
-        console.log("response from update", response)
-        $('.reset').val('');
-        location.reload()
+      console.log("response from update", response)
+      $('.reset').val('');
+      location.reload()
     }
 
     function errorUpdate(a,b,c) {
-        console.log("error updating!")
-        $('#signUp-error').show();
+      console.log("error updating!")
+      $('#signUp-error').show();
     }
 
   }); //end of update
-
-
 
   // Delete a cunnrent user
 
@@ -175,42 +119,19 @@ $(document).ready(function(){
     $('#results').text('Failed to delete a user, is the server working?');
   }
 
-
-
-
-  // // GET all todos on page load
-  // $.ajax({
-  //   method: "GET",
-  //   url: baseUrl,
-  //   success: function onIndexSuccess(json) {
-  //     console.log(json);
-  //
-  //     // set `allTodos` to todo data (json.data) from API
-  //     allTodos = json.todos;
-  //
-  //     // render all todos to view
-  //     render();
-  //   }
-  // });
-
-
-
-
-
   //Shows all users who matched with users leran language
   var userId = $('.welcome').data('id');
-  console.log(userId);
-  $.ajax({
-    method: 'GET',
-    url: '/api/languages/' + userId,
-    type: 'json',
-    success: getUserSuccess,
-    error: getUserError
-  });
-
+    console.log(userId);
+    $.ajax({
+      method: 'GET',
+      url: '/api/languages/' + userId,
+      type: 'json',
+      success: getUserSuccess,
+      error: getUserError
+    });
 
   function getUserSuccess(json) {
-      allUsers = json;
+    allUsers = json;
     renderUser();
   }
 

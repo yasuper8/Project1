@@ -11,7 +11,6 @@ function index(req, res) {
     if (err) {
       return console.log('Get users error: ' + err);
     }
-    console.log(users)
     res.json(users);
   });
 }
@@ -26,10 +25,8 @@ function displayUser(req, res) {
 
 // Create a new user
 function create(req, res) {
-  console.log('body', req.body);
   db.User.create(req.body, function(err, user) {
     if (err) { console.log('error', err); }
-    console.log(user);
     res.json(user);
   });
 }
@@ -38,8 +35,6 @@ function create(req, res) {
   function destroy(req, res) {
   db.User.findOneAndRemove({_id: req.params.id}, function(err, user) {
     console.log('sever error ', err)
-    // res.json(user);
-    // res.redirect('/login');
     res.send("Successfully deleted!")
   });
 }
