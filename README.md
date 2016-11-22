@@ -11,6 +11,12 @@ Who should use: Anyone who wants to learn a new language!
 
 How to use: When the Users signs up, they are asked to enter their native language and the language they are learning. The App will find language exchange partners based on the criteria the User enters. User can then contact the potential partner by emailing them.
 
+
+![Alt text](/i.imgur.com/yWt0INI.jpg "Landig Page")
+![Alt text](/i.imgur.com/uU7HNVl.png "Signup Page")
+![Alt text](/i.imgur.com/ovsfNmL.png "Login Page")
+![Alt text](/i.imgur.com/RPTRpbo.png "User Page")
+
 ## Credits
 Sophie Luo & Yasuyoshi Sakamoto
 ## License
