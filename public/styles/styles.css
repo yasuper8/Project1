@@ -33,8 +33,17 @@ body {
 .logo {
   width: 3em;
 }
+.userDiv {
+  margin: 0 auto;
+}
+.userImage {
+  padding: -2em;
+}
 @media (min-width: 768px) {
   .currentUserProfile {
     margin-left: 23%;
   }
+}
+.userImage {
+  margin: 0 auto;
 }
