@@ -73,8 +73,6 @@ app.put('/api/users/:id', function (req, res) {
     } else {
       // update the users's attributes
       foundUser.learnLang = req.body.learnLang;
-      // foundUser.favoriteAnimal = req.body.favoriteAnimal;
-      // foundUser.profileUrl = req.body.profileUrl;
 
       // save updated user in db
       foundUser.save(function (err, savedUser) {
@@ -92,8 +90,6 @@ app.put('/api/users/:id', function (req, res) {
  * HTML Endpoints
  */
 
-
-
  app.get('/', function homepage(req, res) {
     res.render('signup');
  });
@@ -101,10 +97,6 @@ app.put('/api/users/:id', function (req, res) {
 app.get('/', function homepage(req, res) {
   res.sendFile(__dirname + '/views/signup.ejs');
 });
-
-// app.get('/signup', function(req, res) {
-//     res.render('signup');
-// });
 
 // Login route with placeholder response
 app.get('/login', function(req, res) {
@@ -148,8 +140,6 @@ app.get('/api/languages/:id', function(req, res) {
     // map them all to nativeSpeakers, return native speakers
     var nativeSpeakers = [];
     User.find({nativeLang: currentUser.learnLang}, function nativeSpeakers(err, newFriends){
-      console.log('We found ' + newFriends.length + ' native speakers');
-      // var foundMessage = 'We found ' + newFriends.length + ' native speakers';
       res.json(newFriends)
     })
   });

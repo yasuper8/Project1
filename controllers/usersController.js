@@ -22,7 +22,6 @@ function displayUser(req, res) {
   });
 }
 
-
 // Create a new user
 function create(req, res) {
   db.User.create(req.body, function(err, user) {
@@ -38,7 +37,6 @@ function create(req, res) {
     res.send("Successfully deleted!")
   });
 }
-
 
 // export public methods here
 module.exports = {
