@@ -114,7 +114,16 @@
                                 <br />
                                 Friends : <strong><%= user.friends %></strong></p>
                               <button class="btn btn-primary" data-toggle="modal" data-target=".update-modal" href="">Update my info</button>
-                                <button class="btn btn-primary deleteUser" data-id="<%=user._id%>" href="">Delete my account</button>
+                              <button class="btn btn-primary deleteUser" data-id="<%=user._id%>" href="">Delete my account</button>
+                              <div class="row">
+                                <div class="col-md-3"></div>
+                                <div class="col-md-6">
+                                  <div id="delete-succ" class="alert alert-success collapse" role="alert">
+                                    <a href="#" data-dismiss="alert" class="colse">&times;</a>
+                                    <strong>Goodbye...</strong> You successfully deleted your account. You can't come back once you loged out.
+                                  </div>
+                                </div>
+                              </div>
                         </div>
                     </div>
                 </div>

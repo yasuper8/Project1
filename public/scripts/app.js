@@ -100,21 +100,16 @@ $(document).ready(function(){
       method: 'DELETE',
       url: "api/users/" + $(this).attr('data-id'),
       success: handleDeleteAUser,
-      error: handleDeleteAUser
+      error: handleDeleteAUserErr
     });
   });
 
   function handleDeleteAUser(json) {
     console.log("delete a user success!")
-    // $.ajax({
-    //   method: 'DELETE',
-    //   url: "api/users/" + $(this).attr('data-id'),
-    //   success: handleDeleteAUser,
-    //   error: handleDeleteAUser
-    // });
+    $('#delete-succ').show();
   }
 
-  function handleDeleteUser(e) {
+  function handleDeleteAUserErr(e) {
     console.log('uh oh');
     $('#results').text('Failed to delete a user, is the server working?');
   }
