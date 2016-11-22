@@ -18,7 +18,7 @@ $(document).ready(function(){
     e.preventDefault();
     // Getting data form giphy api
     $.ajax({
-      url: "http://api.giphy.com/v1/gifs/search?q=" + $('#favoriteAnimal').val() +  "&api_key=dc6zaTOxFJmzC",
+      url: "https://api.giphy.com/v1/gifs/search?q=" + $('#favoriteAnimal').val() +  "&api_key=dc6zaTOxFJmzC",
       type: "GET",
       success: successGif,
       error: errorGif
